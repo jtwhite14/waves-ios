@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="WaveCell" customModule="waves_ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="315" height="315"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="315" height="315"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-img" translatesAutoresizingMaskIntoConstraints="NO" id="Ra9-kU-50D">
+                        <rect key="frame" x="0.0" y="0.0" width="315" height="315"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Wave Name" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="had-oz-B0y">
+                        <rect key="frame" x="5" y="267" width="294" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="294" id="aui-ae-4bl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                        <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="aui-ae-4bl"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" ? Miles Away " lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYg-wp-j8G">
+                        <rect key="frame" x="5" y="291" width="294" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="294" id="1Di-ZM-I0f"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                        <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1Di-ZM-I0f"/>
+                            </mask>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="log-icon" translatesAutoresizingMaskIntoConstraints="NO" id="mew-hs-VQ7">
+                        <rect key="frame" x="289" y="8" width="10" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="2bj-Jr-HMm"/>
+                            <constraint firstAttribute="height" constant="14" id="6hd-Nm-DLQ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlT-nQ-p9s">
+                        <rect key="frame" x="302" y="5" width="8" height="20"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="AYg-wp-j8G" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="31Q-Xe-Hti"/>
+                <constraint firstItem="UlT-nQ-p9s" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="58y-nR-Gde"/>
+                <constraint firstItem="mew-hs-VQ7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Fmt-Nc-B2T"/>
+                <constraint firstAttribute="bottom" secondItem="had-oz-B0y" secondAttribute="bottom" constant="21" id="Gdq-H1-R0n"/>
+                <constraint firstItem="Ra9-kU-50D" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="S9H-e1-7aU"/>
+                <constraint firstItem="AYg-wp-j8G" firstAttribute="top" secondItem="had-oz-B0y" secondAttribute="bottom" constant="4" id="Vbx-Ay-xnk"/>
+                <constraint firstItem="had-oz-B0y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="aoJ-IS-n6v"/>
+                <constraint firstItem="Ra9-kU-50D" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="e4g-Pq-1Ps"/>
+                <constraint firstAttribute="trailing" secondItem="Ra9-kU-50D" secondAttribute="trailing" id="fe2-9j-1ZU"/>
+                <constraint firstItem="had-oz-B0y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ky9-hF-Q6C"/>
+                <constraint firstItem="UlT-nQ-p9s" firstAttribute="leading" secondItem="mew-hs-VQ7" secondAttribute="trailing" constant="3" id="ljA-Wy-CNW"/>
+                <constraint firstAttribute="bottom" secondItem="AYg-wp-j8G" secondAttribute="bottom" constant="4" id="tpT-iS-rjx"/>
+                <constraint firstAttribute="bottom" secondItem="Ra9-kU-50D" secondAttribute="bottom" id="uDn-D8-17S"/>
+                <constraint firstAttribute="trailing" secondItem="UlT-nQ-p9s" secondAttribute="trailing" constant="5" id="zw7-RA-rO1"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Gdq-H1-R0n"/>
+                    <exclude reference="aoJ-IS-n6v"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="sessionCountLabel" destination="UlT-nQ-p9s" id="ddv-DE-VYL"/>
+                <outlet property="waveImageView" destination="Ra9-kU-50D" id="FTb-9b-mot"/>
+                <outlet property="waveMilesLabel" destination="AYg-wp-j8G" id="FZK-TW-bvB"/>
+                <outlet property="waveNameLabel" destination="had-oz-B0y" id="9og-Zd-6d8"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="log-icon" width="25" height="30"/>
+        <image name="placeholder-img" width="185" height="185"/>
+    </resources>
+</document>

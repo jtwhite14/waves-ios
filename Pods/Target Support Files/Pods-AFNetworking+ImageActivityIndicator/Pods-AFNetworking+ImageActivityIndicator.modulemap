@@ -1,0 +1,6 @@
+framework module AFNetworking_ImageActivityIndicator {
+  umbrella header "Pods-AFNetworking+ImageActivityIndicator-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module MKMapView_AttributionView {
+  umbrella header "Pods-MKMapView+AttributionView-umbrella.h"
+
+  export *
+  module * { export * }
+}

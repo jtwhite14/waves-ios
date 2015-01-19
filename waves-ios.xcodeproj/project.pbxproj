@@ -7,42 +7,178 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		695739B21F712A982FD048C4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6216EDAC7C7ACCB01E7655C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CB240D781A695F15004D645A /* WavesBackgroundAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CB240D771A695F15004D645A /* WavesBackgroundAPIClient.m */; };
+		CB240D7B1A698A0D004D645A /* WavesResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB240D7A1A698A0D004D645A /* WavesResponseSerializer.m */; };
+		CB240D7E1A698C41004D645A /* WavesResponseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CB240D7D1A698C41004D645A /* WavesResponseClass.m */; };
+		CB240D801A699828004D645A /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB240D7F1A699828004D645A /* DateTools.bundle */; };
+		CB4043301A5F107E0098AA46 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB4043261A5F0FC40098AA46 /* OpenSans-Bold.ttf */; };
+		CB4043311A5F10810098AA46 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB4043271A5F0FC40098AA46 /* OpenSans-BoldItalic.ttf */; };
+		CB4043321A5F10830098AA46 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB4043281A5F0FC40098AA46 /* OpenSans-ExtraBold.ttf */; };
+		CB4043331A5F10850098AA46 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB4043291A5F0FC40098AA46 /* OpenSans-ExtraBoldItalic.ttf */; };
+		CB4043341A5F10870098AA46 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB40432A1A5F0FC40098AA46 /* OpenSans-Italic.ttf */; };
+		CB4043351A5F108A0098AA46 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB40432B1A5F0FC40098AA46 /* OpenSans-Light.ttf */; };
+		CB4043361A5F108C0098AA46 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB40432C1A5F0FC40098AA46 /* OpenSans-LightItalic.ttf */; };
+		CB4043371A5F108E0098AA46 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB40432D1A5F0FC40098AA46 /* OpenSans-Regular.ttf */; };
+		CB4043381A5F10900098AA46 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB40432E1A5F0FC40098AA46 /* OpenSans-Semibold.ttf */; };
+		CB4043391A5F10920098AA46 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB40432F1A5F0FC40098AA46 /* OpenSans-SemiboldItalic.ttf */; };
+		CB40433C1A5F2A810098AA46 /* WaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB40433A1A5F2A810098AA46 /* WaveViewController.swift */; };
+		CB40433D1A5F2A810098AA46 /* WaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB40433B1A5F2A810098AA46 /* WaveViewController.xib */; };
+		CB40433F1A5F38BD0098AA46 /* DINPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB40433E1A5F38BD0098AA46 /* DINPro-Bold.otf */; };
+		CB4043441A5F4FB90098AA46 /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4043421A5F4FB90098AA46 /* SessionCell.swift */; };
+		CB4043451A5F4FB90098AA46 /* SessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4043431A5F4FB90098AA46 /* SessionCell.xib */; };
+		CB4043491A5F58120098AA46 /* StarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4043481A5F58120098AA46 /* StarView.m */; };
+		CB4043511A6045720098AA46 /* DINPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB4043501A6045720098AA46 /* DINPro-Medium.otf */; };
+		CB4043541A604FA70098AA46 /* EditSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4043521A604FA70098AA46 /* EditSessionViewController.swift */; };
+		CB4043551A604FA70098AA46 /* EditSessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB4043531A604FA70098AA46 /* EditSessionViewController.xib */; };
+		CB4043581A6055AE0098AA46 /* LargeStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4043571A6055AE0098AA46 /* LargeStarView.m */; };
+		CB40435B1A6062480098AA46 /* WaveNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4043591A6062480098AA46 /* WaveNameCell.swift */; };
+		CB40435C1A6062480098AA46 /* WaveNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB40435A1A6062480098AA46 /* WaveNameCell.xib */; };
+		CB40435F1A6067790098AA46 /* NewWaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB40435D1A6067790098AA46 /* NewWaveCell.swift */; };
+		CB4043601A6067790098AA46 /* NewWaveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB40435E1A6067790098AA46 /* NewWaveCell.xib */; };
+		CB4043621A6175940098AA46 /* AllWavesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4043611A6175940098AA46 /* AllWavesTableViewController.swift */; };
 		CB47005B1A5C8616001E1839 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47005A1A5C8616001E1839 /* main.m */; };
 		CB47005E1A5C8616001E1839 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB47005D1A5C8616001E1839 /* AppDelegate.m */; };
-		CB4700611A5C8616001E1839 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4700601A5C8616001E1839 /* FirstViewController.m */; };
-		CB4700641A5C8616001E1839 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4700631A5C8616001E1839 /* SecondViewController.m */; };
-		CB4700671A5C8616001E1839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB4700651A5C8616001E1839 /* Main.storyboard */; };
 		CB4700691A5C8616001E1839 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB4700681A5C8616001E1839 /* Images.xcassets */; };
 		CB47006C1A5C8616001E1839 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB47006A1A5C8616001E1839 /* LaunchScreen.xib */; };
-		CB4700781A5C8616001E1839 /* waves_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4700771A5C8616001E1839 /* waves_iosTests.m */; };
+		CB55BF1D1A69BD3800BD26F7 /* WelcomeTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55BF1B1A69BD3800BD26F7 /* WelcomeTourViewController.swift */; };
+		CB55BF1E1A69BD3800BD26F7 /* WelcomeTourViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB55BF1C1A69BD3800BD26F7 /* WelcomeTourViewController.xib */; };
+		CB55BF211A69C30B00BD26F7 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55BF1F1A69C30B00BD26F7 /* WelcomePageViewController.swift */; };
+		CB55BF221A69C30B00BD26F7 /* WelcomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB55BF201A69C30B00BD26F7 /* WelcomePageViewController.xib */; };
+		CB819E361A5D7ED0000F2E95 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB819E351A5D7ED0000F2E95 /* CredentialStore.m */; };
+		CB819E391A5D7ED7000F2E95 /* WavesAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CB819E381A5D7ED7000F2E95 /* WavesAPIClient.m */; };
+		CB819E3D1A5D7F1A000F2E95 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CB819E3C1A5D7F1A000F2E95 /* User.m */; };
+		CB819E401A5D7F3A000F2E95 /* Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = CB819E3F1A5D7F3A000F2E95 /* Wave.m */; };
+		CB819E431A5D7F42000F2E95 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CB819E421A5D7F42000F2E95 /* Session.m */; };
+		CB9C737B1A5EE25D00A2C57F /* WaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C73791A5EE25D00A2C57F /* WaveCell.swift */; };
+		CB9C737C1A5EE25D00A2C57F /* WaveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9C737A1A5EE25D00A2C57F /* WaveCell.xib */; };
+		CB9C738A1A5EF1A800A2C57F /* SpacedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C73891A5EF1A800A2C57F /* SpacedLabel.swift */; };
+		CBB258FD1A6C3E0A00D9503C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB258FC1A6C3E0A00D9503C /* Crashlytics.framework */; };
+		CBB259051A6CA93500D9503C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB259031A6CA93500D9503C /* SettingsViewController.swift */; };
+		CBB259061A6CA93500D9503C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB259041A6CA93500D9503C /* SettingsViewController.xib */; };
+		CBBF46CE1A5ED31A00CD258A /* WavesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF46CC1A5ED31A00CD258A /* WavesViewController.swift */; };
+		CBBF46CF1A5ED31A00CD258A /* WavesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBBF46CD1A5ED31A00CD258A /* WavesViewController.xib */; };
+		CBE169D91A645EF30031DE6D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE169D71A645EF30031DE6D /* MapViewController.swift */; };
+		CBE169DA1A645EF30031DE6D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE169D81A645EF30031DE6D /* MapViewController.xib */; };
+		CBE169DC1A645F380031DE6D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE169DB1A645F380031DE6D /* MapKit.framework */; };
+		CBE169DE1A646FD30031DE6D /* WavePointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE169DD1A646FD30031DE6D /* WavePointAnnotation.swift */; };
+		CBE169E11A648F180031DE6D /* Waves.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBE169DF1A648F180031DE6D /* Waves.xcdatamodeld */; };
+		CBE169E31A6490880031DE6D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE169E21A6490880031DE6D /* CoreData.framework */; };
+		CBE169EC1A65D8B70031DE6D /* ManagedBuoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE169EA1A65D7E70031DE6D /* ManagedBuoy.swift */; };
+		CBE16A1F1A66CA5F0031DE6D /* NewWaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A1D1A66CA5F0031DE6D /* NewWaveViewController.swift */; };
+		CBE16A201A66CA5F0031DE6D /* NewWaveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE16A1E1A66CA5F0031DE6D /* NewWaveViewController.xib */; };
+		CBE16A221A66D9F20031DE6D /* DraggableAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A211A66D9F20031DE6D /* DraggableAnnotationView.swift */; };
+		CBE16A251A670F570031DE6D /* LocationClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A241A670F570031DE6D /* LocationClient.m */; };
+		CBE16A281A6752DB0031DE6D /* ObservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A261A6752DB0031DE6D /* ObservationViewController.swift */; };
+		CBE16A291A6752DB0031DE6D /* ObservationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE16A271A6752DB0031DE6D /* ObservationViewController.xib */; };
+		CBE16A2B1A680DAC0031DE6D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A2A1A680DAC0031DE6D /* UIButtonExtension.swift */; };
+		CBE16A2D1A6819C60031DE6D /* BuoyPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A2C1A6819C60031DE6D /* BuoyPointAnnotation.swift */; };
+		CBE16A2F1A681A800031DE6D /* ManagedObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A2E1A681A800031DE6D /* ManagedObservation.swift */; };
+		CBE16A311A682D130031DE6D /* WaveAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A301A682D130031DE6D /* WaveAvatarView.swift */; };
+		CBE16A331A6839090031DE6D /* BuoyAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A321A6839090031DE6D /* BuoyAvatarView.swift */; };
+		CBE16A361A68484A0031DE6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A341A68484A0031DE6D /* LoginViewController.swift */; };
+		CBE16A371A68484A0031DE6D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE16A351A68484A0031DE6D /* LoginViewController.xib */; };
+		CBE16A3A1A685BC00031DE6D /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A381A685BC00031DE6D /* CreateAccountViewController.swift */; };
+		CBE16A3B1A685BC00031DE6D /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE16A391A685BC00031DE6D /* CreateAccountViewController.xib */; };
+		CBF522E11A5D7F6800930693 /* Buoy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF522E01A5D7F6800930693 /* Buoy.m */; };
+		CBF522E41A5D7F7200930693 /* Observation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF522E31A5D7F7200930693 /* Observation.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		CB4700721A5C8616001E1839 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CB47004D1A5C8616001E1839 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB4700541A5C8616001E1839;
-			remoteInfo = "waves-ios";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		985173379BCFB3B1301FE41C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CB240D761A695F15004D645A /* WavesBackgroundAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesBackgroundAPIClient.h; sourceTree = "<group>"; };
+		CB240D771A695F15004D645A /* WavesBackgroundAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesBackgroundAPIClient.m; sourceTree = "<group>"; };
+		CB240D791A698A0D004D645A /* WavesResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesResponseSerializer.h; sourceTree = "<group>"; };
+		CB240D7A1A698A0D004D645A /* WavesResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesResponseSerializer.m; sourceTree = "<group>"; };
+		CB240D7C1A698C41004D645A /* WavesResponseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesResponseClass.h; sourceTree = "<group>"; };
+		CB240D7D1A698C41004D645A /* WavesResponseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesResponseClass.m; sourceTree = "<group>"; };
+		CB240D7F1A699828004D645A /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
+		CB4043261A5F0FC40098AA46 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		CB4043271A5F0FC40098AA46 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		CB4043281A5F0FC40098AA46 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CB4043291A5F0FC40098AA46 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		CB40432A1A5F0FC40098AA46 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		CB40432B1A5F0FC40098AA46 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		CB40432C1A5F0FC40098AA46 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		CB40432D1A5F0FC40098AA46 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		CB40432E1A5F0FC40098AA46 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		CB40432F1A5F0FC40098AA46 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		CB40433A1A5F2A810098AA46 /* WaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveViewController.swift; sourceTree = "<group>"; };
+		CB40433B1A5F2A810098AA46 /* WaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveViewController.xib; sourceTree = "<group>"; };
+		CB40433E1A5F38BD0098AA46 /* DINPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Bold.otf"; sourceTree = "<group>"; };
+		CB4043421A5F4FB90098AA46 /* SessionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
+		CB4043431A5F4FB90098AA46 /* SessionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionCell.xib; sourceTree = "<group>"; };
+		CB4043471A5F58120098AA46 /* StarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarView.h; sourceTree = "<group>"; };
+		CB4043481A5F58120098AA46 /* StarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarView.m; sourceTree = "<group>"; };
+		CB4043501A6045720098AA46 /* DINPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Medium.otf"; sourceTree = "<group>"; };
+		CB4043521A604FA70098AA46 /* EditSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSessionViewController.swift; sourceTree = "<group>"; };
+		CB4043531A604FA70098AA46 /* EditSessionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditSessionViewController.xib; sourceTree = "<group>"; };
+		CB4043561A6055AE0098AA46 /* LargeStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LargeStarView.h; sourceTree = "<group>"; };
+		CB4043571A6055AE0098AA46 /* LargeStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LargeStarView.m; sourceTree = "<group>"; };
+		CB4043591A6062480098AA46 /* WaveNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveNameCell.swift; sourceTree = "<group>"; };
+		CB40435A1A6062480098AA46 /* WaveNameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveNameCell.xib; sourceTree = "<group>"; };
+		CB40435D1A6067790098AA46 /* NewWaveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWaveCell.swift; sourceTree = "<group>"; };
+		CB40435E1A6067790098AA46 /* NewWaveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewWaveCell.xib; sourceTree = "<group>"; };
+		CB4043611A6175940098AA46 /* AllWavesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllWavesTableViewController.swift; sourceTree = "<group>"; };
 		CB4700551A5C8616001E1839 /* waves-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "waves-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4700591A5C8616001E1839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB47005A1A5C8616001E1839 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CB47005C1A5C8616001E1839 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB47005D1A5C8616001E1839 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CB47005F1A5C8616001E1839 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		CB4700601A5C8616001E1839 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		CB4700621A5C8616001E1839 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		CB4700631A5C8616001E1839 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		CB4700661A5C8616001E1839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB4700681A5C8616001E1839 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB47006B1A5C8616001E1839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CB4700711A5C8616001E1839 /* waves-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "waves-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB4700761A5C8616001E1839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB4700771A5C8616001E1839 /* waves_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = waves_iosTests.m; sourceTree = "<group>"; };
+		CB55BF1B1A69BD3800BD26F7 /* WelcomeTourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeTourViewController.swift; sourceTree = "<group>"; };
+		CB55BF1C1A69BD3800BD26F7 /* WelcomeTourViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeTourViewController.xib; sourceTree = "<group>"; };
+		CB55BF1F1A69C30B00BD26F7 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
+		CB55BF201A69C30B00BD26F7 /* WelcomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomePageViewController.xib; sourceTree = "<group>"; };
+		CB819E341A5D7ED0000F2E95 /* CredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialStore.h; sourceTree = "<group>"; };
+		CB819E351A5D7ED0000F2E95 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
+		CB819E371A5D7ED7000F2E95 /* WavesAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesAPIClient.h; sourceTree = "<group>"; };
+		CB819E381A5D7ED7000F2E95 /* WavesAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesAPIClient.m; sourceTree = "<group>"; };
+		CB819E3B1A5D7F1A000F2E95 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		CB819E3C1A5D7F1A000F2E95 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		CB819E3E1A5D7F3A000F2E95 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
+		CB819E3F1A5D7F3A000F2E95 /* Wave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wave.m; sourceTree = "<group>"; };
+		CB819E411A5D7F42000F2E95 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		CB819E421A5D7F42000F2E95 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
+		CB9C73791A5EE25D00A2C57F /* WaveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveCell.swift; sourceTree = "<group>"; };
+		CB9C737A1A5EE25D00A2C57F /* WaveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveCell.xib; sourceTree = "<group>"; };
+		CB9C73891A5EF1A800A2C57F /* SpacedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedLabel.swift; sourceTree = "<group>"; };
+		CBB258FC1A6C3E0A00D9503C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		CBB259031A6CA93500D9503C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CBB259041A6CA93500D9503C /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		CBBF46C01A5ECBE400CD258A /* waves-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "waves-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		CBBF46CC1A5ED31A00CD258A /* WavesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavesViewController.swift; sourceTree = "<group>"; };
+		CBBF46CD1A5ED31A00CD258A /* WavesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WavesViewController.xib; sourceTree = "<group>"; };
+		CBE169D71A645EF30031DE6D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CBE169D81A645EF30031DE6D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		CBE169DB1A645F380031DE6D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CBE169DD1A646FD30031DE6D /* WavePointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavePointAnnotation.swift; sourceTree = "<group>"; };
+		CBE169E01A648F180031DE6D /* Waves.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Waves.xcdatamodel; sourceTree = "<group>"; };
+		CBE169E21A6490880031DE6D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CBE169EA1A65D7E70031DE6D /* ManagedBuoy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedBuoy.swift; sourceTree = "<group>"; };
+		CBE16A1D1A66CA5F0031DE6D /* NewWaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWaveViewController.swift; sourceTree = "<group>"; };
+		CBE16A1E1A66CA5F0031DE6D /* NewWaveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewWaveViewController.xib; sourceTree = "<group>"; };
+		CBE16A211A66D9F20031DE6D /* DraggableAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableAnnotationView.swift; sourceTree = "<group>"; };
+		CBE16A231A670F570031DE6D /* LocationClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationClient.h; sourceTree = "<group>"; };
+		CBE16A241A670F570031DE6D /* LocationClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationClient.m; sourceTree = "<group>"; };
+		CBE16A261A6752DB0031DE6D /* ObservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationViewController.swift; sourceTree = "<group>"; };
+		CBE16A271A6752DB0031DE6D /* ObservationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObservationViewController.xib; sourceTree = "<group>"; };
+		CBE16A2A1A680DAC0031DE6D /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		CBE16A2C1A6819C60031DE6D /* BuoyPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuoyPointAnnotation.swift; sourceTree = "<group>"; };
+		CBE16A2E1A681A800031DE6D /* ManagedObservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObservation.swift; sourceTree = "<group>"; };
+		CBE16A301A682D130031DE6D /* WaveAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveAvatarView.swift; sourceTree = "<group>"; };
+		CBE16A321A6839090031DE6D /* BuoyAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuoyAvatarView.swift; sourceTree = "<group>"; };
+		CBE16A341A68484A0031DE6D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CBE16A351A68484A0031DE6D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		CBE16A381A685BC00031DE6D /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		CBE16A391A685BC00031DE6D /* CreateAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
+		CBF522DF1A5D7F6800930693 /* Buoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buoy.h; sourceTree = "<group>"; };
+		CBF522E01A5D7F6800930693 /* Buoy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buoy.m; sourceTree = "<group>"; };
+		CBF522E21A5D7F7200930693 /* Observation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observation.h; sourceTree = "<group>"; };
+		CBF522E31A5D7F7200930693 /* Observation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observation.m; sourceTree = "<group>"; };
+		D75CF224FE43FE48453AA758 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F6216EDAC7C7ACCB01E7655C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,25 +186,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB47006E1A5C8616001E1839 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CBE169E31A6490880031DE6D /* CoreData.framework in Frameworks */,
+				CBE169DC1A645F380031DE6D /* MapKit.framework in Frameworks */,
+				CBB258FD1A6C3E0A00D9503C /* Crashlytics.framework in Frameworks */,
+				695739B21F712A982FD048C4 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C19F62A50D8FDDB404C5E0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D75CF224FE43FE48453AA758 /* Pods.debug.xcconfig */,
+				985173379BCFB3B1301FE41C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C75548BA25922BD487C6BB6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBE169E21A6490880031DE6D /* CoreData.framework */,
+				CBE169DB1A645F380031DE6D /* MapKit.framework */,
+				F6216EDAC7C7ACCB01E7655C /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB4043461A5F57DD0098AA46 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				CB4043471A5F58120098AA46 /* StarView.h */,
+				CB4043481A5F58120098AA46 /* StarView.m */,
+				CB4043561A6055AE0098AA46 /* LargeStarView.h */,
+				CB4043571A6055AE0098AA46 /* LargeStarView.m */,
+				CBE16A211A66D9F20031DE6D /* DraggableAnnotationView.swift */,
+				CBE16A301A682D130031DE6D /* WaveAvatarView.swift */,
+				CBE16A321A6839090031DE6D /* BuoyAvatarView.swift */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		CB47004C1A5C8616001E1839 = {
 			isa = PBXGroup;
 			children = (
 				CB4700571A5C8616001E1839 /* waves-ios */,
-				CB4700741A5C8616001E1839 /* waves-iosTests */,
 				CB4700561A5C8616001E1839 /* Products */,
+				2C19F62A50D8FDDB404C5E0B /* Pods */,
+				C75548BA25922BD487C6BB6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				CB4700551A5C8616001E1839 /* waves-ios.app */,
-				CB4700711A5C8616001E1839 /* waves-iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,16 +250,20 @@
 		CB4700571A5C8616001E1839 /* waves-ios */ = {
 			isa = PBXGroup;
 			children = (
+				CB4043461A5F57DD0098AA46 /* views */,
+				CB9C73881A5EF19100A2C57F /* helpers */,
+				CB9C737D1A5EEF2A00A2C57F /* fonts */,
+				CBBF46C51A5ECC3D00CD258A /* cells */,
+				CBF522E51A5D84B800930693 /* controllers */,
+				CB819E3A1A5D7EFD000F2E95 /* models */,
+				CB819E331A5D7EC3000F2E95 /* networking */,
 				CB47005C1A5C8616001E1839 /* AppDelegate.h */,
 				CB47005D1A5C8616001E1839 /* AppDelegate.m */,
-				CB47005F1A5C8616001E1839 /* FirstViewController.h */,
-				CB4700601A5C8616001E1839 /* FirstViewController.m */,
-				CB4700621A5C8616001E1839 /* SecondViewController.h */,
-				CB4700631A5C8616001E1839 /* SecondViewController.m */,
-				CB4700651A5C8616001E1839 /* Main.storyboard */,
+				CBBF46C01A5ECBE400CD258A /* waves-ios-Bridging-Header.h */,
 				CB4700681A5C8616001E1839 /* Images.xcassets */,
 				CB47006A1A5C8616001E1839 /* LaunchScreen.xib */,
 				CB4700581A5C8616001E1839 /* Supporting Files */,
+				CBE169DF1A648F180031DE6D /* Waves.xcdatamodeld */,
 			);
 			path = "waves-ios";
 			sourceTree = "<group>";
@@ -107,21 +277,159 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CB4700741A5C8616001E1839 /* waves-iosTests */ = {
+		CB819E331A5D7EC3000F2E95 /* networking */ = {
 			isa = PBXGroup;
 			children = (
-				CB4700771A5C8616001E1839 /* waves_iosTests.m */,
-				CB4700751A5C8616001E1839 /* Supporting Files */,
+				CB819E371A5D7ED7000F2E95 /* WavesAPIClient.h */,
+				CB819E381A5D7ED7000F2E95 /* WavesAPIClient.m */,
+				CB819E341A5D7ED0000F2E95 /* CredentialStore.h */,
+				CB819E351A5D7ED0000F2E95 /* CredentialStore.m */,
+				CBE16A231A670F570031DE6D /* LocationClient.h */,
+				CBE16A241A670F570031DE6D /* LocationClient.m */,
+				CB240D761A695F15004D645A /* WavesBackgroundAPIClient.h */,
+				CB240D771A695F15004D645A /* WavesBackgroundAPIClient.m */,
+				CB240D791A698A0D004D645A /* WavesResponseSerializer.h */,
+				CB240D7A1A698A0D004D645A /* WavesResponseSerializer.m */,
+				CB240D7C1A698C41004D645A /* WavesResponseClass.h */,
+				CB240D7D1A698C41004D645A /* WavesResponseClass.m */,
 			);
-			path = "waves-iosTests";
+			name = networking;
 			sourceTree = "<group>";
 		};
-		CB4700751A5C8616001E1839 /* Supporting Files */ = {
+		CB819E3A1A5D7EFD000F2E95 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				CB4700761A5C8616001E1839 /* Info.plist */,
+				CBE169EA1A65D7E70031DE6D /* ManagedBuoy.swift */,
+				CBE16A2E1A681A800031DE6D /* ManagedObservation.swift */,
+				CB819E3B1A5D7F1A000F2E95 /* User.h */,
+				CB819E3C1A5D7F1A000F2E95 /* User.m */,
+				CB819E3E1A5D7F3A000F2E95 /* Wave.h */,
+				CB819E3F1A5D7F3A000F2E95 /* Wave.m */,
+				CB819E411A5D7F42000F2E95 /* Session.h */,
+				CB819E421A5D7F42000F2E95 /* Session.m */,
+				CBF522DF1A5D7F6800930693 /* Buoy.h */,
+				CBF522E01A5D7F6800930693 /* Buoy.m */,
+				CBF522E21A5D7F7200930693 /* Observation.h */,
+				CBF522E31A5D7F7200930693 /* Observation.m */,
 			);
-			name = "Supporting Files";
+			name = models;
+			sourceTree = "<group>";
+		};
+		CB9C737D1A5EEF2A00A2C57F /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CB4043501A6045720098AA46 /* DINPro-Medium.otf */,
+				CB40433E1A5F38BD0098AA46 /* DINPro-Bold.otf */,
+				CB4043261A5F0FC40098AA46 /* OpenSans-Bold.ttf */,
+				CB4043271A5F0FC40098AA46 /* OpenSans-BoldItalic.ttf */,
+				CB4043281A5F0FC40098AA46 /* OpenSans-ExtraBold.ttf */,
+				CB4043291A5F0FC40098AA46 /* OpenSans-ExtraBoldItalic.ttf */,
+				CB40432A1A5F0FC40098AA46 /* OpenSans-Italic.ttf */,
+				CB40432B1A5F0FC40098AA46 /* OpenSans-Light.ttf */,
+				CB40432C1A5F0FC40098AA46 /* OpenSans-LightItalic.ttf */,
+				CB40432D1A5F0FC40098AA46 /* OpenSans-Regular.ttf */,
+				CB40432E1A5F0FC40098AA46 /* OpenSans-Semibold.ttf */,
+				CB40432F1A5F0FC40098AA46 /* OpenSans-SemiboldItalic.ttf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
+		CB9C73881A5EF19100A2C57F /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CBB258FC1A6C3E0A00D9503C /* Crashlytics.framework */,
+				CB240D7F1A699828004D645A /* DateTools.bundle */,
+				CB9C73891A5EF1A800A2C57F /* SpacedLabel.swift */,
+				CBE16A2A1A680DAC0031DE6D /* UIButtonExtension.swift */,
+				CBE169DD1A646FD30031DE6D /* WavePointAnnotation.swift */,
+				CBE16A2C1A6819C60031DE6D /* BuoyPointAnnotation.swift */,
+			);
+			name = helpers;
+			sourceTree = "<group>";
+		};
+		CBB258FE1A6C456100D9503C /* login */ = {
+			isa = PBXGroup;
+			children = (
+				CBE16A341A68484A0031DE6D /* LoginViewController.swift */,
+				CBE16A351A68484A0031DE6D /* LoginViewController.xib */,
+				CBE16A381A685BC00031DE6D /* CreateAccountViewController.swift */,
+				CBE16A391A685BC00031DE6D /* CreateAccountViewController.xib */,
+				CB55BF1B1A69BD3800BD26F7 /* WelcomeTourViewController.swift */,
+				CB55BF1C1A69BD3800BD26F7 /* WelcomeTourViewController.xib */,
+				CB55BF1F1A69C30B00BD26F7 /* WelcomePageViewController.swift */,
+				CB55BF201A69C30B00BD26F7 /* WelcomePageViewController.xib */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
+		CBB258FF1A6C456600D9503C /* map */ = {
+			isa = PBXGroup;
+			children = (
+				CBE16A261A6752DB0031DE6D /* ObservationViewController.swift */,
+				CBE16A271A6752DB0031DE6D /* ObservationViewController.xib */,
+				CBE169D71A645EF30031DE6D /* MapViewController.swift */,
+				CBE169D81A645EF30031DE6D /* MapViewController.xib */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		CBB259001A6C456E00D9503C /* new session */ = {
+			isa = PBXGroup;
+			children = (
+				CB4043521A604FA70098AA46 /* EditSessionViewController.swift */,
+				CB4043531A604FA70098AA46 /* EditSessionViewController.xib */,
+				CB4043611A6175940098AA46 /* AllWavesTableViewController.swift */,
+				CBE16A1D1A66CA5F0031DE6D /* NewWaveViewController.swift */,
+				CBE16A1E1A66CA5F0031DE6D /* NewWaveViewController.xib */,
+			);
+			name = "new session";
+			sourceTree = "<group>";
+		};
+		CBB259011A6C45A400D9503C /* waves */ = {
+			isa = PBXGroup;
+			children = (
+				CBBF46CC1A5ED31A00CD258A /* WavesViewController.swift */,
+				CBBF46CD1A5ED31A00CD258A /* WavesViewController.xib */,
+				CB40433A1A5F2A810098AA46 /* WaveViewController.swift */,
+				CB40433B1A5F2A810098AA46 /* WaveViewController.xib */,
+			);
+			name = waves;
+			sourceTree = "<group>";
+		};
+		CBB259021A6CA91700D9503C /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				CBB259031A6CA93500D9503C /* SettingsViewController.swift */,
+				CBB259041A6CA93500D9503C /* SettingsViewController.xib */,
+			);
+			name = settings;
+			sourceTree = "<group>";
+		};
+		CBBF46C51A5ECC3D00CD258A /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				CB9C73791A5EE25D00A2C57F /* WaveCell.swift */,
+				CB9C737A1A5EE25D00A2C57F /* WaveCell.xib */,
+				CB4043421A5F4FB90098AA46 /* SessionCell.swift */,
+				CB4043431A5F4FB90098AA46 /* SessionCell.xib */,
+				CB4043591A6062480098AA46 /* WaveNameCell.swift */,
+				CB40435A1A6062480098AA46 /* WaveNameCell.xib */,
+				CB40435D1A6067790098AA46 /* NewWaveCell.swift */,
+				CB40435E1A6067790098AA46 /* NewWaveCell.xib */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		CBF522E51A5D84B800930693 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CBB259021A6CA91700D9503C /* settings */,
+				CBB259011A6C45A400D9503C /* waves */,
+				CBB259001A6C456E00D9503C /* new session */,
+				CBB258FF1A6C456600D9503C /* map */,
+				CBB258FE1A6C456100D9503C /* login */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,9 +439,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB47007B1A5C8616001E1839 /* Build configuration list for PBXNativeTarget "waves-ios" */;
 			buildPhases = (
+				6288B67F85B93044FE0166D3 /* Check Pods Manifest.lock */,
 				CB4700511A5C8616001E1839 /* Sources */,
 				CB4700521A5C8616001E1839 /* Frameworks */,
 				CB4700531A5C8616001E1839 /* Resources */,
+				1E2424CF11A8A15BE948AB61 /* Copy Pods Resources */,
+				390CD0E2DE0D01CEB0EE94E7 /* Embed Pods Frameworks */,
+				CBB258FB1A6C3DDB00D9503C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -143,24 +455,6 @@
 			productName = "waves-ios";
 			productReference = CB4700551A5C8616001E1839 /* waves-ios.app */;
 			productType = "com.apple.product-type.application";
-		};
-		CB4700701A5C8616001E1839 /* waves-iosTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB47007E1A5C8616001E1839 /* Build configuration list for PBXNativeTarget "waves-iosTests" */;
-			buildPhases = (
-				CB47006D1A5C8616001E1839 /* Sources */,
-				CB47006E1A5C8616001E1839 /* Frameworks */,
-				CB47006F1A5C8616001E1839 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CB4700731A5C8616001E1839 /* PBXTargetDependency */,
-			);
-			name = "waves-iosTests";
-			productName = "waves-iosTests";
-			productReference = CB4700711A5C8616001E1839 /* waves-iosTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -173,10 +467,7 @@
 				TargetAttributes = {
 					CB4700541A5C8616001E1839 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					CB4700701A5C8616001E1839 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = CB4700541A5C8616001E1839;
+						DevelopmentTeam = G3JFES9DV5;
 					};
 				};
 			};
@@ -194,7 +485,6 @@
 			projectRoot = "";
 			targets = (
 				CB4700541A5C8616001E1839 /* waves-ios */,
-				CB4700701A5C8616001E1839 /* waves-iosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -204,60 +494,154 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB4700671A5C8616001E1839 /* Main.storyboard in Resources */,
+				CBE16A201A66CA5F0031DE6D /* NewWaveViewController.xib in Resources */,
+				CB4043391A5F10920098AA46 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				CB9C737C1A5EE25D00A2C57F /* WaveCell.xib in Resources */,
+				CB40435C1A6062480098AA46 /* WaveNameCell.xib in Resources */,
+				CB4043341A5F10870098AA46 /* OpenSans-Italic.ttf in Resources */,
+				CB4043551A604FA70098AA46 /* EditSessionViewController.xib in Resources */,
+				CBE16A291A6752DB0031DE6D /* ObservationViewController.xib in Resources */,
+				CB4043301A5F107E0098AA46 /* OpenSans-Bold.ttf in Resources */,
+				CB4043321A5F10830098AA46 /* OpenSans-ExtraBold.ttf in Resources */,
 				CB47006C1A5C8616001E1839 /* LaunchScreen.xib in Resources */,
+				CB4043351A5F108A0098AA46 /* OpenSans-Light.ttf in Resources */,
+				CBBF46CF1A5ED31A00CD258A /* WavesViewController.xib in Resources */,
+				CB55BF221A69C30B00BD26F7 /* WelcomePageViewController.xib in Resources */,
+				CB4043381A5F10900098AA46 /* OpenSans-Semibold.ttf in Resources */,
+				CBE169DA1A645EF30031DE6D /* MapViewController.xib in Resources */,
+				CB4043601A6067790098AA46 /* NewWaveCell.xib in Resources */,
+				CB55BF1E1A69BD3800BD26F7 /* WelcomeTourViewController.xib in Resources */,
+				CBE16A371A68484A0031DE6D /* LoginViewController.xib in Resources */,
+				CBE16A3B1A685BC00031DE6D /* CreateAccountViewController.xib in Resources */,
+				CBB259061A6CA93500D9503C /* SettingsViewController.xib in Resources */,
+				CB4043331A5F10850098AA46 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				CB4043511A6045720098AA46 /* DINPro-Medium.otf in Resources */,
+				CB4043371A5F108E0098AA46 /* OpenSans-Regular.ttf in Resources */,
+				CB40433D1A5F2A810098AA46 /* WaveViewController.xib in Resources */,
+				CB4043451A5F4FB90098AA46 /* SessionCell.xib in Resources */,
+				CB4043311A5F10810098AA46 /* OpenSans-BoldItalic.ttf in Resources */,
+				CB4043361A5F108C0098AA46 /* OpenSans-LightItalic.ttf in Resources */,
+				CB40433F1A5F38BD0098AA46 /* DINPro-Bold.otf in Resources */,
 				CB4700691A5C8616001E1839 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB47006F1A5C8616001E1839 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CB240D801A699828004D645A /* DateTools.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E2424CF11A8A15BE948AB61 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		390CD0E2DE0D01CEB0EE94E7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6288B67F85B93044FE0166D3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CBB258FB1A6C3DDB00D9503C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 2776a41715c04dde4ba5d15b716b66a51e353b0f 8b7fa703f78b5486e1ea0ee6e468c365d75c06ebf5c0b8a9317712c6b6f24fce";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CB4700511A5C8616001E1839 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB4700641A5C8616001E1839 /* SecondViewController.m in Sources */,
+				CB240D7E1A698C41004D645A /* WavesResponseClass.m in Sources */,
+				CBE16A3A1A685BC00031DE6D /* CreateAccountViewController.swift in Sources */,
+				CBF522E11A5D7F6800930693 /* Buoy.m in Sources */,
+				CB4043621A6175940098AA46 /* AllWavesTableViewController.swift in Sources */,
+				CB40433C1A5F2A810098AA46 /* WaveViewController.swift in Sources */,
+				CB40435B1A6062480098AA46 /* WaveNameCell.swift in Sources */,
+				CBE16A221A66D9F20031DE6D /* DraggableAnnotationView.swift in Sources */,
+				CBB259051A6CA93500D9503C /* SettingsViewController.swift in Sources */,
+				CB819E3D1A5D7F1A000F2E95 /* User.m in Sources */,
+				CB240D7B1A698A0D004D645A /* WavesResponseSerializer.m in Sources */,
+				CBE169DE1A646FD30031DE6D /* WavePointAnnotation.swift in Sources */,
+				CBE169D91A645EF30031DE6D /* MapViewController.swift in Sources */,
+				CBF522E41A5D7F7200930693 /* Observation.m in Sources */,
+				CBE16A1F1A66CA5F0031DE6D /* NewWaveViewController.swift in Sources */,
+				CB819E361A5D7ED0000F2E95 /* CredentialStore.m in Sources */,
+				CB55BF1D1A69BD3800BD26F7 /* WelcomeTourViewController.swift in Sources */,
+				CB240D781A695F15004D645A /* WavesBackgroundAPIClient.m in Sources */,
+				CBE16A251A670F570031DE6D /* LocationClient.m in Sources */,
+				CBE169EC1A65D8B70031DE6D /* ManagedBuoy.swift in Sources */,
+				CBE16A2B1A680DAC0031DE6D /* UIButtonExtension.swift in Sources */,
+				CBBF46CE1A5ED31A00CD258A /* WavesViewController.swift in Sources */,
+				CBE169E11A648F180031DE6D /* Waves.xcdatamodeld in Sources */,
+				CBE16A281A6752DB0031DE6D /* ObservationViewController.swift in Sources */,
 				CB47005E1A5C8616001E1839 /* AppDelegate.m in Sources */,
-				CB4700611A5C8616001E1839 /* FirstViewController.m in Sources */,
+				CB9C738A1A5EF1A800A2C57F /* SpacedLabel.swift in Sources */,
+				CBE16A331A6839090031DE6D /* BuoyAvatarView.swift in Sources */,
+				CBE16A2F1A681A800031DE6D /* ManagedObservation.swift in Sources */,
+				CB4043581A6055AE0098AA46 /* LargeStarView.m in Sources */,
+				CBE16A2D1A6819C60031DE6D /* BuoyPointAnnotation.swift in Sources */,
+				CB4043491A5F58120098AA46 /* StarView.m in Sources */,
+				CB819E401A5D7F3A000F2E95 /* Wave.m in Sources */,
+				CB9C737B1A5EE25D00A2C57F /* WaveCell.swift in Sources */,
+				CB4043441A5F4FB90098AA46 /* SessionCell.swift in Sources */,
 				CB47005B1A5C8616001E1839 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB47006D1A5C8616001E1839 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CB4700781A5C8616001E1839 /* waves_iosTests.m in Sources */,
+				CB819E391A5D7ED7000F2E95 /* WavesAPIClient.m in Sources */,
+				CB55BF211A69C30B00BD26F7 /* WelcomePageViewController.swift in Sources */,
+				CBE16A311A682D130031DE6D /* WaveAvatarView.swift in Sources */,
+				CBE16A361A68484A0031DE6D /* LoginViewController.swift in Sources */,
+				CB40435F1A6067790098AA46 /* NewWaveCell.swift in Sources */,
+				CB819E431A5D7F42000F2E95 /* Session.m in Sources */,
+				CB4043541A604FA70098AA46 /* EditSessionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		CB4700731A5C8616001E1839 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CB4700541A5C8616001E1839 /* waves-ios */;
-			targetProxy = CB4700721A5C8616001E1839 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		CB4700651A5C8616001E1839 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB4700661A5C8616001E1839 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CB47006A1A5C8616001E1839 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -347,55 +731,46 @@
 		};
 		CB47007C1A5C8616001E1839 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D75CF224FE43FE48453AA758 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richardson White (S7UG5P67ZJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/waves-ios",
+				);
 				INFOPLIST_FILE = "waves-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fcfffdeb-169a-4b75-acb7-c192c12974ca";
+				SWIFT_OBJC_BRIDGING_HEADER = "waves-ios/waves-ios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		CB47007D1A5C8616001E1839 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 985173379BCFB3B1301FE41C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richardson White (S7UG5P67ZJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/waves-ios",
+				);
 				INFOPLIST_FILE = "waves-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		CB47007F1A5C8616001E1839 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "waves-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/waves-ios.app/waves-ios";
-			};
-			name = Debug;
-		};
-		CB4700801A5C8616001E1839 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "waves-iosTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/waves-ios.app/waves-ios";
+				PROVISIONING_PROFILE = "fcfffdeb-169a-4b75-acb7-c192c12974ca";
+				SWIFT_OBJC_BRIDGING_HEADER = "waves-ios/waves-ios-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -418,16 +793,22 @@
 				CB47007D1A5C8616001E1839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		CB47007E1A5C8616001E1839 /* Build configuration list for PBXNativeTarget "waves-iosTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB47007F1A5C8616001E1839 /* Debug */,
-				CB4700801A5C8616001E1839 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CBE169DF1A648F180031DE6D /* Waves.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CBE169E01A648F180031DE6D /* Waves.xcdatamodel */,
+			);
+			currentVersion = CBE169E01A648F180031DE6D /* Waves.xcdatamodel */;
+			path = Waves.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CB47004D1A5C8616001E1839 /* Project object */;
 }

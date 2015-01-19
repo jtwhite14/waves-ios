@@ -1,0 +1,6 @@
+framework module IBActionSheet {
+  umbrella header "Pods-IBActionSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}

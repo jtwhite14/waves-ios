@@ -1,0 +1,6 @@
+framework module AMRatingControl {
+  umbrella header "Pods-AMRatingControl-umbrella.h"
+
+  export *
+  module * { export * }
+}
