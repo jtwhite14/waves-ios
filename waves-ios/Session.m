@@ -17,6 +17,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
     return dateFormatter;
 }
 
@@ -43,17 +44,46 @@
     }];
 }
 
-+ (void) getSessionsForWave:(Wave *)wave completion:(void (^)(NSArray *))completion {
-    [[WavesAPIClient sharedClient] GET:[NSString stringWithFormat:@"waves/%@/sessions", wave.identifier] parameters:nil].then( ^ (OVCResponse *response) {
+#pragma mark - MTLManagedObjectSerializing
+
++ (NSString *)managedObjectEntityName {
+    return @"Session";
+}
+
++ (NSDictionary *)managedObjectKeysByPropertyKey {
+    return @{};
+}
+
++ (NSSet *)propertyKeysForManagedObjectUniquing {
+    return [NSSet setWithObject:@"identifier"];
+}
+
++ (NSDictionary *)relationshipModelClassesByPropertyKey {
+    return @{
+             @"observation": [Observation class],
+             @"wave": [Wave class]
+             };
+}
+
++ (void) getSessionsForWave:(NSString *)waveIdentifier completion:(void (^)(NSArray *))completion {
+    [[WavesAPIClient sharedClient] GET:[NSString stringWithFormat:@"waves/%@/sessions", waveIdentifier] parameters:nil].then( ^ (OVCResponse *response) {
         if (completion) {
             completion(response.result);
         }
     });
 }
 
-+ (void) uploadImageForSession:(UIImage*)image withCompletion:(void (^)(Session *))completion {
++ (void)createSession:(NSDictionary *)params withCompletion:(void (^)(Session *))completion {
+    [[WavesAPIClient sharedClient] POST:@"sessions" parameters:params].then( ^ (OVCResponse *response) {
+        if (completion) {
+            completion(response.result);
+        }
+    });
+}
+
++ (void)uploadImageForSession:(UIImage *)image withSessionID:(NSString *)sessionID withCompletion:(void (^)(Session *))completion {
     
-    [[WavesAPIClient sharedClient] POST:@"sessions" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [[WavesAPIClient sharedClient] POST:[NSString stringWithFormat:@"sessions/%@/upload", sessionID] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
         [formData appendPartWithFileData:imageData name:@"session[session_photo]" fileName:@"session_photo.jpeg" mimeType:@"image/jpeg"];
     }].then( ^ (OVCResponse *response) {
@@ -65,8 +95,19 @@
     });
 }
 
++ (void)uploadImage:(NSDictionary *)params withSessionID:(NSString *)sessionID withCompletion:(void (^)(Session *))completion {
 
-+ (void) finalizeSession:(NSDictionary *)params withSessionID:(NSString *)sessionID withCompletion:(void (^)(Session *))completion {
+    NSDictionary *newParams = @{ @"session_photo" : params };
+    
+    [[WavesAPIClient sharedClient] POST:[NSString stringWithFormat:@"sessions/%@/upload", sessionID] parameters:newParams].then( ^ (OVCResponse *response) {
+        if (completion) {
+            completion(response.result);
+        }
+    });
+}
+
+
++ (void)finalizeSession:(NSDictionary *)params withSessionID:(NSString *)sessionID withCompletion:(void (^)(Session *))completion {
     [[WavesAPIClient sharedClient] PUT:[NSString stringWithFormat:@"sessions/%@", sessionID] parameters:params].then( ^ (OVCResponse *response) {
         if (completion) {
             completion(response.result);
@@ -74,8 +115,8 @@
     });
 }
 
-- (void) destroySessionWithCompletion:(void (^)(BOOL))completion {
-    [[WavesAPIClient sharedClient] DELETE:[NSString stringWithFormat:@"sessions/%@", self.identifier] parameters:nil].then(^ (OVCResponse *response) {
++ (void) destroySession:(NSString*)identifier WithCompletion:(void (^)(BOOL))completion; {
+    [[WavesAPIClient sharedClient] DELETE:[NSString stringWithFormat:@"sessions/%@", identifier] parameters:nil].then(^ (OVCResponse *response) {
         if (completion) {
             completion(YES);
         }

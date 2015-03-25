@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import DZNPhotoPickerController
+import HanekeSwift
+import MBProgressHUD
 
 class CreateAccountViewController: UIViewController {
 
+    @IBOutlet var avatarView: UIImageView!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -19,6 +23,9 @@ class CreateAccountViewController: UIViewController {
         
         self.signupButton.setImage(UIImage(named: "signup-inactive-btn"), forState: UIControlState.Disabled)
         self.signupButton.enabled = false
+        
+        self.avatarView.layer.cornerRadius = self.avatarView.frame.size.width / 2
+        self.avatarView.clipsToBounds = true
 
         // Do any additional setup after loading the view.
     }
@@ -33,21 +40,41 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func createAccount(sender: AnyObject) {
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         hideKeyboard()
         
-        let params:NSDictionary = [ "registration" : [
-            "name" : self.nameTextField.text,
-            "email" : self.emailTextField.text,
-            "password" : self.passwordTextField.text
+        let params: NSDictionary = [ "registration" : [
+            "name" : "\(self.nameTextField.text)",
+            "email" : "\(self.emailTextField.text)",
+            "password" : "\(self.passwordTextField.text)"
         ]]
         
-        User.createCurrentUser(params, withCompletion: { (user:User!) in
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-            NSLog("ok")
+        User.createCurrentUser(params, withImage:self.avatarView.image, withCompletion: { (user:User!, error:NSError!) in
+            hud.hide(true)
+            if ((error) != nil) {
+                UIAlertView(title: "Oops", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK").show()
+            } else {
+                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            }
         })
     }
     
     @IBAction func selectAvatar(sender: AnyObject) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        picker.cropMode = DZNPhotoEditorViewControllerCropMode.Circular
+        
+        picker.finalizationBlock = { (picker:UIImagePickerController!, info:[NSObject : AnyObject]!) in
+            self.avatarView.image = info[UIImagePickerControllerEditedImage] as? UIImage
+            picker.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        picker.cancellationBlock = { (picker:UIImagePickerController!) in
+            picker.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        self.presentViewController(picker, animated: true, completion: nil)
     }
     
     @IBAction func editingChanged(sender: AnyObject) {

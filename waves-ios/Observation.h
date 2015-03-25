@@ -23,4 +23,22 @@
 @property (nonatomic, copy) NSNumber *averageWavePeriod;
 @property (nonatomic, copy) NSNumber *meanWaveDirection;
 
+
+@property (nonatomic, copy) NSNumber *windSpeed;
+@property (nonatomic, copy) NSNumber *windGusts;
+@property (nonatomic, copy) NSString *windDirection;
+@property (nonatomic, copy) NSNumber *meanWindDirection;
+@property (nonatomic, copy) NSNumber *airTemp;
+@property (nonatomic, copy) NSNumber *waterTemp;
+@property (nonatomic, copy) NSDate *logTideTimestamp;
+@property (nonatomic, copy) NSNumber *logTideValue;
+@property (nonatomic, copy) NSNumber *firstLowValue;
+@property (nonatomic, copy) NSDate *firstLowTimestamp;
+@property (nonatomic, copy) NSNumber *secondLowValue;
+@property (nonatomic, copy) NSDate *secondLowTimestamp;
+@property (nonatomic, copy) NSNumber *firstHighValue;
+@property (nonatomic, copy) NSDate *firstHighTimestamp;
+@property (nonatomic, copy) NSNumber *secondHighValue;
+@property (nonatomic, copy) NSDate *secondHighTimestamp;
+
 @end

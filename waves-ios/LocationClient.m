@@ -44,7 +44,11 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     self.currentLocation = manager.location.coordinate;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"location-updated" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"location-updated" object:self];
+}
+
+-(BOOL)currentLocationIsValid {
+    return (CLLocationCoordinate2DIsValid(self.currentLocation));
 }
 
 @end

@@ -22,6 +22,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-state-img" translatesAutoresizingMaskIntoConstraints="NO" id="Suh-5H-Xhe">
+                    <rect key="frame" x="137" y="152" width="326" height="448"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="448" id="FEQ-wd-nxc"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="326" id="nLn-mp-Df9"/>
+                        <constraint firstAttribute="width" constant="326" id="oY1-y7-J5T"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="nLn-mp-Df9"/>
+                        </mask>
+                    </variation>
+                </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Dg-qk-mqY">
                     <rect key="frame" x="0.0" y="90" width="600" height="510"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="IJi-sP-Q7o">
@@ -68,7 +81,7 @@
                         <constraint firstAttribute="width" constant="44" id="wSL-Ha-zvC"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charlie White" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-sZ-Eaj">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surfer" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-sZ-Eaj">
                     <rect key="frame" x="299" y="42" width="230" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="230" id="Bxn-y6-YGQ"/>
@@ -111,7 +124,9 @@
                 <constraint firstItem="U4t-sZ-Eaj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="49" id="fPa-gF-p5f"/>
                 <constraint firstItem="U4t-sZ-Eaj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="fhq-J7-64K"/>
                 <constraint firstItem="Mmw-yj-IZc" firstAttribute="width" secondItem="80z-re-Mnn" secondAttribute="width" id="gv2-U7-9yE"/>
+                <constraint firstAttribute="bottom" secondItem="Suh-5H-Xhe" secondAttribute="bottom" id="iji-D9-Pya"/>
                 <constraint firstItem="U4t-sZ-Eaj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="42" id="lr1-qK-gCD"/>
+                <constraint firstAttribute="centerX" secondItem="Suh-5H-Xhe" secondAttribute="centerX" id="mmy-eN-sRw"/>
                 <constraint firstItem="Mmw-yj-IZc" firstAttribute="leading" secondItem="U4t-sZ-Eaj" secondAttribute="trailing" constant="15" id="q9E-dV-BxZ"/>
                 <constraint firstAttribute="bottom" secondItem="htU-KT-7R4" secondAttribute="bottom" constant="10" id="swf-0p-qbU"/>
                 <constraint firstItem="Mmw-yj-IZc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="u2l-lM-5Cz"/>
@@ -143,6 +158,7 @@
     </objects>
     <resources>
         <image name="add-btn" width="81" height="81"/>
+        <image name="empty-state-img" width="326" height="448"/>
         <image name="import-photo-icon" width="51" height="51"/>
         <image name="map-btn" width="81" height="81"/>
     </resources>

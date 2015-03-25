@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A5623B72-F94D-4750-8DB3-55E44FC4A585</string>
+	<key>IDESourceControlProjectName</key>
+	<string>waves-ios</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FE4D7E89ACFC28637CE56AC17014ED5113ACF289</key>
+		<string>https://github.com/jtwhite14/waves-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>waves-ios.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FE4D7E89ACFC28637CE56AC17014ED5113ACF289</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jtwhite14/waves-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FE4D7E89ACFC28637CE56AC17014ED5113ACF289</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FE4D7E89ACFC28637CE56AC17014ED5113ACF289</string>
+			<key>IDESourceControlWCCName</key>
+			<string>waves-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -11,6 +11,6 @@ import MapKit
 
 class WavePointAnnotation: MKPointAnnotation {
     
-    var wave : Wave!
+    var wave : ManagedWave!
 
 }

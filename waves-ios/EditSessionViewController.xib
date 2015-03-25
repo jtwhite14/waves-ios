@@ -92,20 +92,23 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RATING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wl-mF-lDv">
                     <rect key="frame" x="10" y="207" width="40" height="15"/>
                     <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="11"/>
+                    <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrp-9L-b9b">
                     <rect key="frame" x="10" y="252" width="36" height="15"/>
                     <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="11"/>
+                    <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WAVE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwv-fB-89p">
                     <rect key="frame" x="10" y="388" width="30" height="15"/>
                     <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="11"/>
+                    <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="40" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="LW6-El-hC7">
-                    <rect key="frame" x="8" y="414" width="300" height="160"/>
+                    <rect key="frame" x="8" y="403" width="300" height="160"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="160" id="5nI-q0-sfv"/>
@@ -173,7 +176,7 @@
                 <constraint firstItem="fc8-qw-7VB" firstAttribute="leading" secondItem="Ul7-43-WfX" secondAttribute="trailing" constant="18" id="fEz-EC-pZx"/>
                 <constraint firstItem="lMm-oV-G94" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="gIS-7D-egh"/>
                 <constraint firstItem="iwv-fB-89p" firstAttribute="leading" secondItem="LW6-El-hC7" secondAttribute="leading" constant="2" id="hME-KA-wCO"/>
-                <constraint firstItem="LW6-El-hC7" firstAttribute="top" secondItem="iwv-fB-89p" secondAttribute="bottom" constant="11" id="iG0-cv-geD"/>
+                <constraint firstItem="LW6-El-hC7" firstAttribute="top" secondItem="iwv-fB-89p" secondAttribute="bottom" id="iG0-cv-geD"/>
                 <constraint firstItem="Qrp-9L-b9b" firstAttribute="leading" secondItem="9wl-mF-lDv" secondAttribute="leading" id="kcC-1d-o9a"/>
                 <constraint firstAttribute="trailing" secondItem="lMm-oV-G94" secondAttribute="trailing" constant="8" id="kmP-cY-KF1"/>
                 <constraint firstItem="m3E-XA-DOV" firstAttribute="top" secondItem="fc8-qw-7VB" secondAttribute="bottom" constant="18" id="rtU-x5-fro"/>

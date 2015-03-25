@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -38,7 +39,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func login(sender: AnyObject) {
-        
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         hideKeyboard()
         
         let params:NSDictionary = [ "user_login" : [
@@ -46,9 +47,13 @@ class LoginViewController: UIViewController {
             "password" : self.passwordTextField.text
         ]]
         
-        User.login(params, withCompletion: { (user:User!) in
-            self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-            NSLog("done")
+        User.login(params, withCompletion: { (user:User!, error:NSError!) in
+            hud.hide(true)
+            if ((error) != nil) {
+                UIAlertView(title: "Oops", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK").show()
+            } else {
+                self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+            }
         })
     }
     

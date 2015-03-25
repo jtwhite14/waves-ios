@@ -11,13 +11,15 @@
 #import "Buoy.h"
 #import "Session.h"
 
-@interface Wave : MTLModel <MTLJSONSerializing>
+
+
+@interface Wave : MTLModel <MTLJSONSerializing, MTLManagedObjectSerializing>
 
 @property (nonatomic, copy) NSString *identifier;
 @property (nonatomic, copy) NSString *slug;
 @property (nonatomic, copy) NSString *titlePhotoUrl;
 @property (nonatomic, copy) NSString *mapPhotoUrl;
-@property (nonatomic, copy) NSString *distance;
+@property (nonatomic, copy) NSNumber *distance;
 @property (nonatomic, copy) Buoy *buoy;
 @property (nonatomic, copy) NSNumber *latitude;
 @property (nonatomic, copy) NSNumber *longitude;
@@ -26,8 +28,10 @@
 
 
 + (void) getWaves:(void (^)(NSArray *))completion;
++ (void) getWave:(NSString *)waveIdentifier withParams:(NSDictionary *)params withCompletion:(void (^)(Wave *))completion;
 + (void) getClosestWaves:(NSDictionary *)params withCompletion:(void (^)(NSArray *))completion;
-
 + (void) createWave:(NSDictionary *)params withCompletion:(void (^)(Wave *))completion;
+
+//- (ManagedWave *)managedWave;
 
 @end

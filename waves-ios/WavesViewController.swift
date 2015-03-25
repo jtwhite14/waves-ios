@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import HanekeSwift
+import CoreData
 
 @objc protocol PresentWaveDelegate{
-    func presentWave(wave:Wave, animated:Bool)
+    func presentWave(wave:ManagedWave, animated:Bool)
+    func presentWave(waveIdentifier:NSString, newSessionIdentifier:NSString, newImage:UIImage, animated:Bool)
 }
 
 class WavesViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, PresentWaveDelegate {
@@ -17,8 +20,7 @@ class WavesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     var waves: [Wave]! = []
     var refreshControl:UIRefreshControl!
     var locationClient:LocationClient!
-    var authChecked:Bool! = false
-    var welcomeShown:Bool! = false
+    var firstLoad:Bool = true
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var avatarImageView: UIImageView!
@@ -29,8 +31,8 @@ class WavesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadCurrentUser", name: "current-user-changed", object: nil)
         
-        //collectionView!.registerClass(WaveCell.self, forCellWithReuseIdentifier: "WaveViewCell")
         collectionView!.registerNib(UINib(nibName: "WaveCell", bundle: nil), forCellWithReuseIdentifier: "WaveViewCell")
         collectionView!.backgroundColor = UIColor.whiteColor()
         collectionView.alwaysBounceVertical = true
@@ -39,25 +41,28 @@ class WavesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         self.refreshControl.addTarget(self, action: "loadWaves", forControlEvents: UIControlEvents.ValueChanged)
         collectionView.addSubview(refreshControl)
         
+        
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.size.width / 2
         self.avatarImageView.clipsToBounds = true
-
-        // Do any additional setup after loading the view.
     }
     
     func checkForAuth() {
         if (!CredentialStore.sharedStore().isLoggedIn()) {
             displayLogin()
         } else {
-            if (!authChecked) {
+            if (firstLoad) {
+                User.getCurrentUserWithCompletion(nil)
                 self.locationClient = LocationClient.sharedClient()
                 NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadWaves", name: "location-updated", object: nil)
-                self.authChecked = true
+                firstLoad = false
             }
-            User.getCurrentUserWithCompletion({ (user:User!) in
-                self.userNameLabel.text = user.name
-            })
         }
+    }
+    
+    func loadCurrentUser() {
+            let user = CredentialStore.sharedStore().currentUser
+            self.userNameLabel.text = user.name
+            self.avatarImageView.hnk_setImageFromURL(NSURL(string:user.avatarUrl)!, placeholder:UIImage(named: "import-photo-icon"))
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -78,6 +83,13 @@ class WavesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         Wave.getClosestWaves(params, withCompletion: {(waves:[AnyObject]!)  in
             self.waves = waves as? [Wave]
+            self.fetchedResultsController.performFetch(nil)
+            if (self.numberOfWaves() == 0) {
+                self.collectionView!.hidden = true
+            } else {
+                self.collectionView!.hidden = false
+            }
+            
             self.collectionView.reloadData()
             self.refreshControl.endRefreshing()
         })
@@ -85,17 +97,42 @@ class WavesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "location-updated", object: nil)
     }
     
+    func numberOfWaves() -> (Int) {
+        var count : Int!
+        if let s = self.fetchedResultsController.sections as? [NSFetchedResultsSectionInfo] {
+            count = s[0].numberOfObjects
+        }
+        return count
+    }
+    
+    private lazy var fetchedResultsController: NSFetchedResultsController = {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        let fetchRequest = NSFetchRequest(entityName: "Wave")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "distance", ascending: true)]
+        
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
+            managedObjectContext: appDelegate.managedObjectContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        
+        controller.performFetch(nil)
+        
+        return controller
+    }()
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return waves.count
+       return self.numberOfWaves()
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WaveViewCell", forIndexPath: indexPath) as WaveCell
-        let wave = waves[indexPath.row] as Wave
+        //let wave = waves[indexPath.row] as Wave
+        let wave = self.fetchedResultsController.objectAtIndexPath(indexPath) as ManagedWave
         
         cell.configureWave(wave)
         
@@ -116,16 +153,40 @@ class WavesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     func collectionView(collectionView: UICollectionView,
         didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let wave = waves[indexPath.row] as Wave
+        let wave = self.fetchedResultsController.objectAtIndexPath(indexPath) as ManagedWave
         self.presentWave(wave, animated: true)
     }
     
-    func presentWave(wave:Wave, animated:Bool) {
+    func presentWave(wave:ManagedWave, animated:Bool) {
         let waveVC = WaveViewController(nibName: "WaveViewController", bundle: nil)
         waveVC.wave = wave
         self.navigationController?.pushViewController(waveVC, animated: animated)
     }
     
+    func presentWave(waveIdentifier:NSString, newSessionIdentifier:NSString, newImage:UIImage, animated:Bool) {
+        self.loadWaves()
+        let waveVC = WaveViewController(nibName: "WaveViewController", bundle: nil)
+        waveVC.wave = findWaveByIdentifier(waveIdentifier)
+        waveVC.newSessionIdentifier = newSessionIdentifier
+        waveVC.newSessionImage = newImage
+        self.navigationController?.pushViewController(waveVC, animated: animated)
+    }
+    
+    func findWaveByIdentifier(identifier:NSString) -> (ManagedWave)  {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        let fetchRequest = NSFetchRequest(entityName: "Wave")
+        
+        let predicate = NSPredicate(format: "identifier == %@", identifier)
+        fetchRequest.predicate = predicate
+        fetchRequest.fetchLimit = 1
+        
+        let wave = appDelegate.managedObjectContext.executeFetchRequest(fetchRequest, error: nil)?.first as ManagedWave
+        return wave
+        
+    }
+    
+        
     @IBAction func newSession(sender: AnyObject) {
         let picker = UIImagePickerController()
         picker.delegate = self;
@@ -161,17 +222,23 @@ class WavesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
             }
             
             
-            let editSessionVC = EditSessionViewController(nibName: "EditSessionViewController", bundle: nil)
-            editSessionVC.session = newSession
-            editSessionVC.sessionPhoto = picked
-            editSessionVC.delegate = self
-            
-            
-            Session.uploadImageForSession(picked, withCompletion: nil)
-            
-            picker.dismissViewControllerAnimated(true, completion: {
-                self.presentViewController(editSessionVC, animated: true, completion: nil)
+            Session.createSession(nil, withCompletion: { (session:Session!) in
+               
+                WavesImageUploader.sharedClient().uploadImage(picked, withCompletion: { (successResult:[NSObject : AnyObject]!) in
+                   Session.uploadImage(successResult, withSessionID: session.identifier, withCompletion:nil)
+                })
+
+                let editSessionVC = EditSessionViewController(nibName: "EditSessionViewController", bundle: nil)
+                editSessionVC.session = newSession
+                editSessionVC.sessionPhoto = picked
+                editSessionVC.createdSessionIdentifier = session.identifier
+                editSessionVC.delegate = self
+                picker.dismissViewControllerAnimated(true, completion: {
+                    self.presentViewController(editSessionVC, animated: true, completion: nil)
+                })
             })
+            
+            
         }
         
         let failureBlock : ALAssetsLibraryAccessFailureBlock = { (error: NSError!) in

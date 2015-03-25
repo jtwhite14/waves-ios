@@ -21,6 +21,7 @@
             <connections>
                 <outlet property="buoyStationLabel" destination="CTu-2F-gfe" id="Gad-Dl-gYU"/>
                 <outlet property="metricsBackgroundView" destination="eCx-dD-doq" id="8Zv-4z-5c3"/>
+                <outlet property="presentBuoyButton" destination="X6d-rV-4O5" id="bbW-2T-GcB"/>
                 <outlet property="swellDirectionLabel" destination="dqY-wC-LLg" id="Dmc-w2-ZGK"/>
                 <outlet property="swellPeriodLabel" destination="f18-Jp-S4I" id="PvJ-EA-tgE"/>
                 <outlet property="tableView" destination="PxD-FE-UM9" id="VDb-v3-eX7"/>
@@ -55,37 +56,37 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f18-Jp-S4I">
-                            <rect key="frame" x="154" y="19" width="45" height="22"/>
+                            <rect key="frame" x="152" y="19" width="45" height="22"/>
                             <fontDescription key="fontDescription" name="DINPro-Medium" family="DINPro" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(---)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vK7-jB-aEg">
-                            <rect key="frame" x="303" y="19" width="33" height="22"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(---°)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vK7-jB-aEg">
+                            <rect key="frame" x="299" y="19" width="41" height="22"/>
                             <fontDescription key="fontDescription" name="DINPro-Medium" family="DINPro" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqY-wC-LLg">
-                            <rect key="frame" x="439" y="19" width="15" height="22"/>
+                            <rect key="frame" x="441" y="19" width="15" height="22"/>
                             <fontDescription key="fontDescription" name="DINPro-Medium" family="DINPro" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veg-gs-SL3">
-                            <rect key="frame" x="199" y="24" width="104" height="12"/>
+                            <rect key="frame" x="197" y="24" width="102" height="12"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwb-hd-heC">
-                            <rect key="frame" x="454" y="27" width="104" height="12"/>
+                            <rect key="frame" x="456" y="27" width="102" height="12"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Amj-bj-Rlz">
-                            <rect key="frame" x="50" y="24" width="104" height="15"/>
+                            <rect key="frame" x="50" y="24" width="102" height="15"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4M-Z9-bcp">
-                            <rect key="frame" x="336" y="27" width="103" height="12"/>
+                            <rect key="frame" x="340" y="27" width="101" height="12"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6d-rV-4O5">
@@ -144,8 +145,8 @@
                     <color key="textColor" red="0.68627450980392157" green="0.68627450980392157" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buoy 44001" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTu-2F-gfe">
-                    <rect key="frame" x="452" y="62" width="77" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buoy -----" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTu-2F-gfe">
+                    <rect key="frame" x="469" y="62" width="60" height="20"/>
                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                     <color key="textColor" red="0.68627450980000004" green="0.68627450980000004" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>

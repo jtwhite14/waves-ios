@@ -15,9 +15,11 @@
 #import "CredentialStore.h"
 #import "AppDelegate.h"
 #import "WavesResponseClass.h"
+#import "TRJSONResponseSerializerWithData.h"
+#import "WavesErrorClass.h"
 
 NSString * const kConciergeBaseURL = @"https://secret-refuge-5780.herokuapp.com/api/v1";
-//NSString * const kConciergeBaseURL = @"http://cwhite.local:3000/api/v1";
+//NSString * const kConciergeBaseURL = @"http://localhost:3000/api/v1";
 
 @implementation WavesAPIClient
 
@@ -40,8 +42,8 @@ NSString * const kConciergeBaseURL = @"https://secret-refuge-5780.herokuapp.com/
 - (id)initWithBaseURL:(NSURL *)url managedObjectContext:(NSManagedObjectContext *)context sessionConfiguration:(NSURLSessionConfiguration *)configuration {
     self = [super initWithBaseURL:url managedObjectContext:context sessionConfiguration:configuration];
     if (self) {
-
         [self setAuthTokenHeader];
+        //self.responseSerializer = [TRJSONResponseSerializerWithData serializer];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(tokenChanged:)
                                                      name:@"token-changed"
@@ -50,9 +52,37 @@ NSString * const kConciergeBaseURL = @"https://secret-refuge-5780.herokuapp.com/
     return self;
 }
 
+- (void)setupResponseSerializer {
+    OVCURLMatcher *matcher = [[OVCURLMatcher alloc] initWithBasePath:[self.baseURL path]
+                                                  modelClassesByPath:[[self class] modelClassesByResourcePath]];
+    
+    OVCURLMatcher *responseClassMatcher = nil;
+    if ([[self class] responseClassesByResourcePath]) {
+        // Check if all the classes used in responseClassesByResourcePath are
+        // subclasses of OVCResponse
+        [[[self class] responseClassesByResourcePath] enumerateKeysAndObjectsUsingBlock:^(NSString *path,
+                                                                                          Class responseClass,
+                                                                                          BOOL *stop) {
+            NSParameterAssert([responseClass isSubclassOfClass:[OVCResponse class]]);
+        }];
+        
+        responseClassMatcher = [[OVCURLMatcher alloc] initWithBasePath:[self.baseURL path]
+                                                    modelClassesByPath:[[self class] responseClassesByResourcePath]];
+    }
+    self.responseSerializer = [TRJSONResponseSerializerWithData serializerWithURLMatcher:matcher
+                                                           responseClassURLMatcher:responseClassMatcher
+                                                              managedObjectContext:self.backgroundContext
+                                                                     responseClass:[[self class] responseClass]
+                                                                   errorModelClass:[[self class] errorModelClass]];
+}
+
 + (Class)responseClass {
     return [WavesResponseClass class];
 }
+
+//+ (Class)errorModelClass {
+//    return [WavesErrorClass class];
+//}
 
 - (void)setAuthTokenHeader {
     CredentialStore *store = [[CredentialStore alloc] init];

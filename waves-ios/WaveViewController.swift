@@ -10,14 +10,20 @@ import UIKit
 import IBActionSheet
 
 @objc protocol SessionDelegate{
-    func presentBuoy(observation:Observation, isCurrentObservation:Bool)
-    func displayDeleteSessionSheet(session:Session)
+    func presentBuoy(observation:ManagedObservation, isCurrentObservation:Bool)
+    func displayDeleteSessionSheet(session:ManagedSession)
 }
 
-class WaveViewController: UIViewController, UITableViewDataSource, SessionDelegate, IBActionSheetDelegate {
+class WaveViewController: UIViewController, UITableViewDataSource, SessionDelegate {
     
-    var wave: Wave!
+    var wave: ManagedWave!
     var sessions: [Session]! = []
+    var allowMapDisplay:Bool! = true
+    
+    // Performance fix for new sessions
+    var newSessionIdentifier:NSString!
+    var newSessionImage:UIImage!
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var waveNameLabel: UILabel!
     @IBOutlet var waveDistanceLabel: UILabel!
@@ -28,6 +34,7 @@ class WaveViewController: UIViewController, UITableViewDataSource, SessionDelega
     @IBOutlet var swellDirectionLabel: UILabel!
     @IBOutlet var metricsBackgroundView: UIView!
     @IBOutlet var waveAvatarView: WaveAvatarView!
+    @IBOutlet var presentBuoyButton: UIButton!
     var prototypeCell : UITableViewCell!
     let formatter = NSNumberFormatter()
     
@@ -51,32 +58,71 @@ class WaveViewController: UIViewController, UITableViewDataSource, SessionDelega
         self.waveAvatarView.setStartingRegion(CLLocationCoordinate2D(latitude: CLLocationDegrees(self.wave.latitude),longitude:  CLLocationDegrees(self.wave.longitude)))
 
         
-        self.waveNameLabel.text = self.wave.slug
-        self.buoyStationLabel.text = "Buoy \(self.wave.buoy.stationId)"
         self.waveDistanceLabel.text = "\(self.wave.distance) miles away"
+        self.waveNameLabel.text = self.wave.slug
+        if ((self.wave.buoy) != nil) {
+            self.buoyStationLabel.text = "Buoy \(self.wave.buoy.stationId)"
         
-        if ((self.wave.buoy.currentObservation) != nil) {
-            self.waveHeightLabel.text = "\(self.formatter.stringFromNumber(self.wave.buoy.currentObservation.waveHeight)!) ft"
-            self.swellPeriodLabel.text = "\(self.formatter.stringFromNumber(self.wave.buoy.currentObservation.swellPeriod)!) sec"
-            self.waveDirectionLabel.text = "(\(self.wave.buoy.currentObservation.meanWaveDirection.stringValue))"
-            
-            let attachment = NSTextAttachment()
-            attachment.image = UIImage(named: "wind-icon-halfsize-white")
-            let attachmentString = NSAttributedString(attachment: attachment)
-            let myString = NSMutableAttributedString(string: self.wave.buoy.currentObservation.swellDirection)
-            myString.insertAttributedString(attachmentString, atIndex: 0)
-            self.swellDirectionLabel.attributedText = myString
+            if ((self.wave.buoy.currentObservation) != nil) {
+                self.presentBuoyButton.enabled = true
+                self.waveHeightLabel.text = "\(self.formatter.stringFromNumber(self.wave.buoy.currentObservation.waveHeight)!) ft"
+                self.swellPeriodLabel.text = "\(self.formatter.stringFromNumber(self.wave.buoy.currentObservation.swellPeriod)!) sec"
+                self.waveDirectionLabel.text = "(\(self.wave.buoy.currentObservation.meanWaveDirection.stringValue)°)"
+                
+                if (self.wave.buoy.currentObservation.windDirection != nil) {
+                    let attachment = NSTextAttachment()
+                    attachment.image = UIImage(named: "wind-icon-halfsize-white")
+                    let attachmentString = NSAttributedString(attachment: attachment)
+                    let myString = NSMutableAttributedString(string: self.wave.buoy.currentObservation.windDirection)
+                    myString.insertAttributedString(attachmentString, atIndex: 0)
+                    self.swellDirectionLabel.attributedText = myString
+
+                }
+            } else {
+                self.presentBuoyButton.enabled = false
+            }
+        } else {
+            self.presentBuoyButton.enabled = false
         }
         
-        
-        self.loadSessions()
+        self.loadWave()
     }
     
-    func loadSessions() {
-        Session.getSessionsForWave(self.wave, {(sessions:[AnyObject]!)  in
-            self.sessions = sessions as? [Session]
+    func loadWave() {
+        let params : NSDictionary = [ "latitude" : LocationClient.sharedClient().currentLocation.latitude , "longitude" : LocationClient.sharedClient().currentLocation.longitude ]
+        
+        Wave.getWave(self.wave.identifier, withParams:params, withCompletion: { (wave:Wave!) in
+            self.fetchedResultsController.performFetch(nil)
             self.tableView.reloadData()
         })
+    }
+    
+    private lazy var fetchedResultsController: NSFetchedResultsController = {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        let fetchRequest = NSFetchRequest(entityName: "Session")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
+        
+ 
+        let predicate = NSPredicate(format: "wave.identifier == %@", self.wave.identifier)
+        fetchRequest.predicate = predicate
+        
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
+            managedObjectContext: appDelegate.managedObjectContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        
+        controller.performFetch(nil)
+        
+        return controller
+        }()
+    
+    func numberOfSessions() -> (Int) {
+        var count : Int!
+        if let s = self.fetchedResultsController.sections as? [NSFetchedResultsSectionInfo] {
+            count = s[0].numberOfObjects
+        }
+        return count
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -101,23 +147,32 @@ class WaveViewController: UIViewController, UITableViewDataSource, SessionDelega
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.sessions.count
+        return self.numberOfSessions()
     }
     
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SessionCellIdentifier", forIndexPath: indexPath) as SessionCell
-        let session : Session = self.sessions[indexPath.row] as Session
+        //let session : Session = self.sessions[indexPath.row] as Session
+        let session = self.fetchedResultsController.objectAtIndexPath(indexPath) as ManagedSession
+        
+        //performance hack, if this is a newly created session, display the local image first, to give time for uploading.
+        if (newSessionIdentifier != nil && newSessionIdentifier == session.identifier) {
+            cell.configureSession(session, image: newSessionImage)
+        } else {
+            cell.configureSession(session)
+        }
         cell.delegate = self
-        cell.configureSession(session)
+        
         
         return cell
     }
     
     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         let cell = tableView.dequeueReusableCellWithIdentifier("SessionCellIdentifier") as SessionCell
-        let session : Session = self.sessions[indexPath.row] as Session
+        //let session : Session = self.sessions[indexPath.row] as Session
+        let session = self.fetchedResultsController.objectAtIndexPath(indexPath) as ManagedSession
         
         cell.configureSession(session)
         cell.layoutIfNeeded()
@@ -129,23 +184,27 @@ class WaveViewController: UIViewController, UITableViewDataSource, SessionDelega
         presentBuoy(self.wave.buoy.currentObservation, isCurrentObservation:true)
     }
     
-    func presentBuoy(observation:Observation, isCurrentObservation:Bool) {
+    func presentBuoy(observation:ManagedObservation, isCurrentObservation:Bool) {
         let observationVC = ObservationViewController(nibName: "ObservationViewController", bundle: nil)
-        observationVC.buoy = self.wave.buoy
-        observationVC.observation = observation
+        observationVC.managedBuoy = self.wave.buoy
+        observationVC.managedObservation = observation
         observationVC.allowMapDisplay = true
         observationVC.isCurrentObservation = isCurrentObservation
         self.navigationController?.pushViewController(observationVC, animated: true)
     }
     
     @IBAction func showMapView(sender: AnyObject) {
-        let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
-        mapVC.startingRegion =  CLLocationCoordinate2D(latitude: CLLocationDegrees(self.wave.latitude),longitude:  CLLocationDegrees(self.wave.longitude))
-        let MapNav = UINavigationController(rootViewController: mapVC)
-        self.presentViewController(MapNav, animated: true, completion: nil)
+        if (allowMapDisplay == true) {
+            let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
+            mapVC.startingRegion =  CLLocationCoordinate2D(latitude: CLLocationDegrees(self.wave.latitude),longitude:  CLLocationDegrees(self.wave.longitude))
+            let MapNav = UINavigationController(rootViewController: mapVC)
+            self.presentViewController(MapNav, animated: true, completion: nil)
+        } else {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
-    func displayDeleteSessionSheet(session:Session) {
+    func displayDeleteSessionSheet(session:ManagedSession) {
         var alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         alert.addAction(UIAlertAction(title: "Delete Session", style: .Destructive, handler: { action in
             switch action.style{
@@ -154,18 +213,19 @@ class WaveViewController: UIViewController, UITableViewDataSource, SessionDelega
             case .Cancel:
                 println("cancel")
             case .Destructive:
-                session.destroySessionWithCompletion({ (destroyed:Bool) in
-                    self.loadSessions()
+                println("cancel")
+                Session.destroySession(session.identifier, withCompletion: { (destroyed:Bool) in
+                    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                    appDelegate.managedObjectContext.deleteObject(session)
+                    appDelegate.managedObjectContext.save(nil)
+                    self.fetchedResultsController.performFetch(nil)
+                    self.tableView.reloadData()
                 })
             }
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-     func actionSheet(actionSheet: IBActionSheet!, clickedButtonAtIndex buttonIndex: Int) {
-        NSLog("clicked")
     }
     
 }

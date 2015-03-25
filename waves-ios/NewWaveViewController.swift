@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import MBProgressHUD
 
 class NewWaveViewController: UIViewController, MKMapViewDelegate {
 
@@ -76,6 +77,7 @@ class NewWaveViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func createWave(sender: AnyObject) {
         self.createWaveButton.enabled = false
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         let params : NSDictionary = [ "wave" : [
             "latitude" : self.region.latitude,
@@ -85,7 +87,7 @@ class NewWaveViewController: UIViewController, MKMapViewDelegate {
         ]
         
         Wave.createWave(params, withCompletion: { (wave:Wave!) in
-            NSLog(wave.slug)
+            hud.hide(true)
             self.delegate?.setWave(wave)
             self.dismissViewControllerAnimated(true, completion: nil)
         })

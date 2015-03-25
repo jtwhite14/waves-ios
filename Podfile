@@ -18,3 +18,4 @@ pod "MKMapView+AttributionView"
 pod 'HanekeSwift', :git => "https://github.com/Haneke/HanekeSwift", :branch => "podspec"
 pod 'IBActionSheet'
 pod 'DZNPhotoPickerController/Editor'
+pod 'Cloudinary'

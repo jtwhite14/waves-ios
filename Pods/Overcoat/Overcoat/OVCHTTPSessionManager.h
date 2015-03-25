@@ -32,10 +32,12 @@
  */
 @interface OVCHTTPSessionManager : AFHTTPSessionManager
 
+
 /**
  The managed object context that will be used to persist model objects parsed from a response.
  */
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectContext *backgroundContext;
 
 /**
  Returns the class used to create responses.

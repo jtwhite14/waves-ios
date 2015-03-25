@@ -29,7 +29,7 @@ class WaveCell: UICollectionViewCell {
         sessionCountLabel.layer.shadowOffset = CGSizeMake(0.0, 0.5)
     }
     
-    func configureWave(wave: Wave) {
+    func configureWave(wave: ManagedWave) {
         self.waveNameLabel?.text = "  \(wave.slug)  "
         self.sessionCountLabel.text = "\(wave.sessionsCount)"
         if ((wave.distance) != nil) {

@@ -32,11 +32,11 @@
 
 @interface OVCModelResponseSerializer ()
 
-@property (strong, nonatomic) OVCURLMatcher *URLMatcher;
-@property (strong, nonatomic) OVCURLMatcher *URLResponseClassMatcher;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic) Class responseClass;
-@property (nonatomic) Class errorModelClass;
+//@property (strong, nonatomic) OVCURLMatcher *URLMatcher;
+//@property (strong, nonatomic) OVCURLMatcher *URLResponseClassMatcher;
+//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+//@property (nonatomic) Class responseClass;
+//@property (nonatomic) Class errorModelClass;
 
 @end
 

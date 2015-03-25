@@ -55,7 +55,7 @@
 }
 
 - (BOOL)isLoggedIn {
-    return [self authToken] != nil && [self userID] != nil;
+    return [self authToken] != nil;
 }
 
 -(void)logout {

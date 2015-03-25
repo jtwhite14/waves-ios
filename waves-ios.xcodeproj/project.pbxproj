@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		695739B21F712A982FD048C4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6216EDAC7C7ACCB01E7655C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CB1344461A705A8C00E44CFD /* WavesImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1344451A705A8C00E44CFD /* WavesImageUploader.m */; };
+		CB1E37FC1A7326560037F897 /* TRJSONResponseSerializerWithData.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1E37FB1A7326560037F897 /* TRJSONResponseSerializerWithData.m */; };
+		CB1E37FF1A732E060037F897 /* WavesErrorClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1E37FE1A732E060037F897 /* WavesErrorClass.m */; };
 		CB240D781A695F15004D645A /* WavesBackgroundAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CB240D771A695F15004D645A /* WavesBackgroundAPIClient.m */; };
 		CB240D7B1A698A0D004D645A /* WavesResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB240D7A1A698A0D004D645A /* WavesResponseSerializer.m */; };
 		CB240D7E1A698C41004D645A /* WavesResponseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CB240D7D1A698C41004D645A /* WavesResponseClass.m */; };
@@ -45,6 +48,12 @@
 		CB55BF1E1A69BD3800BD26F7 /* WelcomeTourViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB55BF1C1A69BD3800BD26F7 /* WelcomeTourViewController.xib */; };
 		CB55BF211A69C30B00BD26F7 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB55BF1F1A69C30B00BD26F7 /* WelcomePageViewController.swift */; };
 		CB55BF221A69C30B00BD26F7 /* WelcomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB55BF201A69C30B00BD26F7 /* WelcomePageViewController.xib */; };
+		CB6E5E781A6F2E6F00A4720E /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6E5E761A6F2E6F00A4720E /* ContactUsViewController.swift */; };
+		CB6E5E791A6F2E6F00A4720E /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB6E5E771A6F2E6F00A4720E /* ContactUsViewController.xib */; };
+		CB6E5E841A6F4A7300A4720E /* ManagedObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6E5E831A6F4A7300A4720E /* ManagedObservation.swift */; };
+		CB70D14E1A72CC8100F63EB7 /* ManagedWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB70D14D1A72CC8100F63EB7 /* ManagedWave.swift */; };
+		CB70D1501A72CCBC00F63EB7 /* ManagedSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB70D14F1A72CCBC00F63EB7 /* ManagedSession.swift */; };
+		CB70D1531A731D3A00F63EB7 /* WavesFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70D1521A731D3A00F63EB7 /* WavesFormatter.m */; };
 		CB819E361A5D7ED0000F2E95 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CB819E351A5D7ED0000F2E95 /* CredentialStore.m */; };
 		CB819E391A5D7ED7000F2E95 /* WavesAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CB819E381A5D7ED7000F2E95 /* WavesAPIClient.m */; };
 		CB819E3D1A5D7F1A000F2E95 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CB819E3C1A5D7F1A000F2E95 /* User.m */; };
@@ -53,11 +62,12 @@
 		CB9C737B1A5EE25D00A2C57F /* WaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C73791A5EE25D00A2C57F /* WaveCell.swift */; };
 		CB9C737C1A5EE25D00A2C57F /* WaveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9C737A1A5EE25D00A2C57F /* WaveCell.xib */; };
 		CB9C738A1A5EF1A800A2C57F /* SpacedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C73891A5EF1A800A2C57F /* SpacedLabel.swift */; };
-		CBB258FD1A6C3E0A00D9503C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB258FC1A6C3E0A00D9503C /* Crashlytics.framework */; };
 		CBB259051A6CA93500D9503C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB259031A6CA93500D9503C /* SettingsViewController.swift */; };
 		CBB259061A6CA93500D9503C /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBB259041A6CA93500D9503C /* SettingsViewController.xib */; };
 		CBBF46CE1A5ED31A00CD258A /* WavesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBBF46CC1A5ED31A00CD258A /* WavesViewController.swift */; };
 		CBBF46CF1A5ED31A00CD258A /* WavesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBBF46CD1A5ED31A00CD258A /* WavesViewController.xib */; };
+		CBD31AEB1A6DC7DE00FAFFE5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD31AE91A6DC7DE00FAFFE5 /* Crashlytics.framework */; };
+		CBD31AEC1A6DC7DE00FAFFE5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD31AEA1A6DC7DE00FAFFE5 /* Fabric.framework */; };
 		CBE169D91A645EF30031DE6D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE169D71A645EF30031DE6D /* MapViewController.swift */; };
 		CBE169DA1A645EF30031DE6D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE169D81A645EF30031DE6D /* MapViewController.xib */; };
 		CBE169DC1A645F380031DE6D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBE169DB1A645F380031DE6D /* MapKit.framework */; };
@@ -73,7 +83,6 @@
 		CBE16A291A6752DB0031DE6D /* ObservationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBE16A271A6752DB0031DE6D /* ObservationViewController.xib */; };
 		CBE16A2B1A680DAC0031DE6D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A2A1A680DAC0031DE6D /* UIButtonExtension.swift */; };
 		CBE16A2D1A6819C60031DE6D /* BuoyPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A2C1A6819C60031DE6D /* BuoyPointAnnotation.swift */; };
-		CBE16A2F1A681A800031DE6D /* ManagedObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A2E1A681A800031DE6D /* ManagedObservation.swift */; };
 		CBE16A311A682D130031DE6D /* WaveAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A301A682D130031DE6D /* WaveAvatarView.swift */; };
 		CBE16A331A6839090031DE6D /* BuoyAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A321A6839090031DE6D /* BuoyAvatarView.swift */; };
 		CBE16A361A68484A0031DE6D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE16A341A68484A0031DE6D /* LoginViewController.swift */; };
@@ -86,6 +95,12 @@
 
 /* Begin PBXFileReference section */
 		985173379BCFB3B1301FE41C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CB1344441A705A8C00E44CFD /* WavesImageUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesImageUploader.h; sourceTree = "<group>"; };
+		CB1344451A705A8C00E44CFD /* WavesImageUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesImageUploader.m; sourceTree = "<group>"; };
+		CB1E37FA1A7326560037F897 /* TRJSONResponseSerializerWithData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRJSONResponseSerializerWithData.h; sourceTree = "<group>"; };
+		CB1E37FB1A7326560037F897 /* TRJSONResponseSerializerWithData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRJSONResponseSerializerWithData.m; sourceTree = "<group>"; };
+		CB1E37FD1A732E060037F897 /* WavesErrorClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesErrorClass.h; sourceTree = "<group>"; };
+		CB1E37FE1A732E060037F897 /* WavesErrorClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesErrorClass.m; sourceTree = "<group>"; };
 		CB240D761A695F15004D645A /* WavesBackgroundAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesBackgroundAPIClient.h; sourceTree = "<group>"; };
 		CB240D771A695F15004D645A /* WavesBackgroundAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesBackgroundAPIClient.m; sourceTree = "<group>"; };
 		CB240D791A698A0D004D645A /* WavesResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesResponseSerializer.h; sourceTree = "<group>"; };
@@ -131,6 +146,14 @@
 		CB55BF1C1A69BD3800BD26F7 /* WelcomeTourViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeTourViewController.xib; sourceTree = "<group>"; };
 		CB55BF1F1A69C30B00BD26F7 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		CB55BF201A69C30B00BD26F7 /* WelcomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomePageViewController.xib; sourceTree = "<group>"; };
+		CB6E5E751A6EE73200A4720E /* DINPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Regular.otf"; sourceTree = "<group>"; };
+		CB6E5E761A6F2E6F00A4720E /* ContactUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		CB6E5E771A6F2E6F00A4720E /* ContactUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
+		CB6E5E831A6F4A7300A4720E /* ManagedObservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObservation.swift; sourceTree = "<group>"; };
+		CB70D14D1A72CC8100F63EB7 /* ManagedWave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedWave.swift; sourceTree = "<group>"; };
+		CB70D14F1A72CCBC00F63EB7 /* ManagedSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedSession.swift; sourceTree = "<group>"; };
+		CB70D1511A731D3A00F63EB7 /* WavesFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesFormatter.h; sourceTree = "<group>"; };
+		CB70D1521A731D3A00F63EB7 /* WavesFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesFormatter.m; sourceTree = "<group>"; };
 		CB819E341A5D7ED0000F2E95 /* CredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialStore.h; sourceTree = "<group>"; };
 		CB819E351A5D7ED0000F2E95 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
 		CB819E371A5D7ED7000F2E95 /* WavesAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesAPIClient.h; sourceTree = "<group>"; };
@@ -144,12 +167,13 @@
 		CB9C73791A5EE25D00A2C57F /* WaveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveCell.swift; sourceTree = "<group>"; };
 		CB9C737A1A5EE25D00A2C57F /* WaveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaveCell.xib; sourceTree = "<group>"; };
 		CB9C73891A5EF1A800A2C57F /* SpacedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedLabel.swift; sourceTree = "<group>"; };
-		CBB258FC1A6C3E0A00D9503C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		CBB259031A6CA93500D9503C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CBB259041A6CA93500D9503C /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		CBBF46C01A5ECBE400CD258A /* waves-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "waves-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		CBBF46CC1A5ED31A00CD258A /* WavesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WavesViewController.swift; sourceTree = "<group>"; };
 		CBBF46CD1A5ED31A00CD258A /* WavesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WavesViewController.xib; sourceTree = "<group>"; };
+		CBD31AE91A6DC7DE00FAFFE5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		CBD31AEA1A6DC7DE00FAFFE5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		CBE169D71A645EF30031DE6D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CBE169D81A645EF30031DE6D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		CBE169DB1A645F380031DE6D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -166,7 +190,6 @@
 		CBE16A271A6752DB0031DE6D /* ObservationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObservationViewController.xib; sourceTree = "<group>"; };
 		CBE16A2A1A680DAC0031DE6D /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		CBE16A2C1A6819C60031DE6D /* BuoyPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuoyPointAnnotation.swift; sourceTree = "<group>"; };
-		CBE16A2E1A681A800031DE6D /* ManagedObservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObservation.swift; sourceTree = "<group>"; };
 		CBE16A301A682D130031DE6D /* WaveAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveAvatarView.swift; sourceTree = "<group>"; };
 		CBE16A321A6839090031DE6D /* BuoyAvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuoyAvatarView.swift; sourceTree = "<group>"; };
 		CBE16A341A68484A0031DE6D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -187,8 +210,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBE169E31A6490880031DE6D /* CoreData.framework in Frameworks */,
+				CBD31AEC1A6DC7DE00FAFFE5 /* Fabric.framework in Frameworks */,
 				CBE169DC1A645F380031DE6D /* MapKit.framework in Frameworks */,
-				CBB258FD1A6C3E0A00D9503C /* Crashlytics.framework in Frameworks */,
+				CBD31AEB1A6DC7DE00FAFFE5 /* Crashlytics.framework in Frameworks */,
 				695739B21F712A982FD048C4 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +274,8 @@
 		CB4700571A5C8616001E1839 /* waves-ios */ = {
 			isa = PBXGroup;
 			children = (
+				CBD31AE91A6DC7DE00FAFFE5 /* Crashlytics.framework */,
+				CBD31AEA1A6DC7DE00FAFFE5 /* Fabric.framework */,
 				CB4043461A5F57DD0098AA46 /* views */,
 				CB9C73881A5EF19100A2C57F /* helpers */,
 				CB9C737D1A5EEF2A00A2C57F /* fonts */,
@@ -280,6 +306,8 @@
 		CB819E331A5D7EC3000F2E95 /* networking */ = {
 			isa = PBXGroup;
 			children = (
+				CB1E37FA1A7326560037F897 /* TRJSONResponseSerializerWithData.h */,
+				CB1E37FB1A7326560037F897 /* TRJSONResponseSerializerWithData.m */,
 				CB819E371A5D7ED7000F2E95 /* WavesAPIClient.h */,
 				CB819E381A5D7ED7000F2E95 /* WavesAPIClient.m */,
 				CB819E341A5D7ED0000F2E95 /* CredentialStore.h */,
@@ -292,6 +320,10 @@
 				CB240D7A1A698A0D004D645A /* WavesResponseSerializer.m */,
 				CB240D7C1A698C41004D645A /* WavesResponseClass.h */,
 				CB240D7D1A698C41004D645A /* WavesResponseClass.m */,
+				CB1344441A705A8C00E44CFD /* WavesImageUploader.h */,
+				CB1344451A705A8C00E44CFD /* WavesImageUploader.m */,
+				CB1E37FD1A732E060037F897 /* WavesErrorClass.h */,
+				CB1E37FE1A732E060037F897 /* WavesErrorClass.m */,
 			);
 			name = networking;
 			sourceTree = "<group>";
@@ -299,8 +331,10 @@
 		CB819E3A1A5D7EFD000F2E95 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				CB70D14F1A72CCBC00F63EB7 /* ManagedSession.swift */,
+				CB70D14D1A72CC8100F63EB7 /* ManagedWave.swift */,
+				CB6E5E831A6F4A7300A4720E /* ManagedObservation.swift */,
 				CBE169EA1A65D7E70031DE6D /* ManagedBuoy.swift */,
-				CBE16A2E1A681A800031DE6D /* ManagedObservation.swift */,
 				CB819E3B1A5D7F1A000F2E95 /* User.h */,
 				CB819E3C1A5D7F1A000F2E95 /* User.m */,
 				CB819E3E1A5D7F3A000F2E95 /* Wave.h */,
@@ -320,6 +354,7 @@
 			children = (
 				CB4043501A6045720098AA46 /* DINPro-Medium.otf */,
 				CB40433E1A5F38BD0098AA46 /* DINPro-Bold.otf */,
+				CB6E5E751A6EE73200A4720E /* DINPro-Regular.otf */,
 				CB4043261A5F0FC40098AA46 /* OpenSans-Bold.ttf */,
 				CB4043271A5F0FC40098AA46 /* OpenSans-BoldItalic.ttf */,
 				CB4043281A5F0FC40098AA46 /* OpenSans-ExtraBold.ttf */,
@@ -337,12 +372,13 @@
 		CB9C73881A5EF19100A2C57F /* helpers */ = {
 			isa = PBXGroup;
 			children = (
-				CBB258FC1A6C3E0A00D9503C /* Crashlytics.framework */,
 				CB240D7F1A699828004D645A /* DateTools.bundle */,
 				CB9C73891A5EF1A800A2C57F /* SpacedLabel.swift */,
 				CBE16A2A1A680DAC0031DE6D /* UIButtonExtension.swift */,
 				CBE169DD1A646FD30031DE6D /* WavePointAnnotation.swift */,
 				CBE16A2C1A6819C60031DE6D /* BuoyPointAnnotation.swift */,
+				CB70D1511A731D3A00F63EB7 /* WavesFormatter.h */,
+				CB70D1521A731D3A00F63EB7 /* WavesFormatter.m */,
 			);
 			name = helpers;
 			sourceTree = "<group>";
@@ -401,6 +437,8 @@
 			children = (
 				CBB259031A6CA93500D9503C /* SettingsViewController.swift */,
 				CBB259041A6CA93500D9503C /* SettingsViewController.xib */,
+				CB6E5E761A6F2E6F00A4720E /* ContactUsViewController.swift */,
+				CB6E5E771A6F2E6F00A4720E /* ContactUsViewController.xib */,
 			);
 			name = settings;
 			sourceTree = "<group>";
@@ -467,7 +505,7 @@
 				TargetAttributes = {
 					CB4700541A5C8616001E1839 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = G3JFES9DV5;
+						DevelopmentTeam = 62394WN86F;
 					};
 				};
 			};
@@ -502,6 +540,7 @@
 				CB4043551A604FA70098AA46 /* EditSessionViewController.xib in Resources */,
 				CBE16A291A6752DB0031DE6D /* ObservationViewController.xib in Resources */,
 				CB4043301A5F107E0098AA46 /* OpenSans-Bold.ttf in Resources */,
+				CB6E5E791A6F2E6F00A4720E /* ContactUsViewController.xib in Resources */,
 				CB4043321A5F10830098AA46 /* OpenSans-ExtraBold.ttf in Resources */,
 				CB47006C1A5C8616001E1839 /* LaunchScreen.xib in Resources */,
 				CB4043351A5F108A0098AA46 /* OpenSans-Light.ttf in Resources */,
@@ -586,7 +625,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 2776a41715c04dde4ba5d15b716b66a51e353b0f 8b7fa703f78b5486e1ea0ee6e468c365d75c06ebf5c0b8a9317712c6b6f24fce";
+			shellScript = "./Fabric.framework/run 60127358bcffa26026f4eec6ce82364f16e1b60a af3c85d4bf1564e5e9f1f6d8a87e48995be1bc887fe846a91b46f1fc591affe2";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -595,18 +634,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB70D1501A72CCBC00F63EB7 /* ManagedSession.swift in Sources */,
 				CB240D7E1A698C41004D645A /* WavesResponseClass.m in Sources */,
 				CBE16A3A1A685BC00031DE6D /* CreateAccountViewController.swift in Sources */,
 				CBF522E11A5D7F6800930693 /* Buoy.m in Sources */,
 				CB4043621A6175940098AA46 /* AllWavesTableViewController.swift in Sources */,
 				CB40433C1A5F2A810098AA46 /* WaveViewController.swift in Sources */,
 				CB40435B1A6062480098AA46 /* WaveNameCell.swift in Sources */,
+				CB70D14E1A72CC8100F63EB7 /* ManagedWave.swift in Sources */,
+				CB6E5E841A6F4A7300A4720E /* ManagedObservation.swift in Sources */,
 				CBE16A221A66D9F20031DE6D /* DraggableAnnotationView.swift in Sources */,
 				CBB259051A6CA93500D9503C /* SettingsViewController.swift in Sources */,
 				CB819E3D1A5D7F1A000F2E95 /* User.m in Sources */,
 				CB240D7B1A698A0D004D645A /* WavesResponseSerializer.m in Sources */,
 				CBE169DE1A646FD30031DE6D /* WavePointAnnotation.swift in Sources */,
 				CBE169D91A645EF30031DE6D /* MapViewController.swift in Sources */,
+				CB1E37FC1A7326560037F897 /* TRJSONResponseSerializerWithData.m in Sources */,
 				CBF522E41A5D7F7200930693 /* Observation.m in Sources */,
 				CBE16A1F1A66CA5F0031DE6D /* NewWaveViewController.swift in Sources */,
 				CB819E361A5D7ED0000F2E95 /* CredentialStore.m in Sources */,
@@ -618,12 +661,14 @@
 				CBBF46CE1A5ED31A00CD258A /* WavesViewController.swift in Sources */,
 				CBE169E11A648F180031DE6D /* Waves.xcdatamodeld in Sources */,
 				CBE16A281A6752DB0031DE6D /* ObservationViewController.swift in Sources */,
+				CB6E5E781A6F2E6F00A4720E /* ContactUsViewController.swift in Sources */,
+				CB70D1531A731D3A00F63EB7 /* WavesFormatter.m in Sources */,
 				CB47005E1A5C8616001E1839 /* AppDelegate.m in Sources */,
 				CB9C738A1A5EF1A800A2C57F /* SpacedLabel.swift in Sources */,
 				CBE16A331A6839090031DE6D /* BuoyAvatarView.swift in Sources */,
-				CBE16A2F1A681A800031DE6D /* ManagedObservation.swift in Sources */,
 				CB4043581A6055AE0098AA46 /* LargeStarView.m in Sources */,
 				CBE16A2D1A6819C60031DE6D /* BuoyPointAnnotation.swift in Sources */,
+				CB1E37FF1A732E060037F897 /* WavesErrorClass.m in Sources */,
 				CB4043491A5F58120098AA46 /* StarView.m in Sources */,
 				CB819E401A5D7F3A000F2E95 /* Wave.m in Sources */,
 				CB9C737B1A5EE25D00A2C57F /* WaveCell.swift in Sources */,
@@ -634,6 +679,7 @@
 				CBE16A311A682D130031DE6D /* WaveAvatarView.swift in Sources */,
 				CBE16A361A68484A0031DE6D /* LoginViewController.swift in Sources */,
 				CB40435F1A6067790098AA46 /* NewWaveCell.swift in Sources */,
+				CB1344461A705A8C00E44CFD /* WavesImageUploader.m in Sources */,
 				CB819E431A5D7F42000F2E95 /* Session.m in Sources */,
 				CB4043541A604FA70098AA46 /* EditSessionViewController.swift in Sources */,
 			);
@@ -735,18 +781,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Richardson White (S7UG5P67ZJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/waves-ios",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "waves-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fcfffdeb-169a-4b75-acb7-c192c12974ca";
+				PROVISIONING_PROFILE = "9ce70982-905f-4353-b88d-ba045d02020e";
 				SWIFT_OBJC_BRIDGING_HEADER = "waves-ios/waves-ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -758,18 +805,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Richardson White (S7UG5P67ZJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jt white (9X9UWWKQ8S)";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/waves-ios",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "waves-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fcfffdeb-169a-4b75-acb7-c192c12974ca";
+				PROVISIONING_PROFILE = "9ce70982-905f-4353-b88d-ba045d02020e";
 				SWIFT_OBJC_BRIDGING_HEADER = "waves-ios/waves-ios-Bridging-Header.h";
 			};
 			name = Release;

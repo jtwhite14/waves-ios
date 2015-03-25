@@ -66,6 +66,12 @@
 #define COCOAPODS_VERSION_MINOR_CCHMapClusterController 6
 #define COCOAPODS_VERSION_PATCH_CCHMapClusterController 5
 
+// Cloudinary
+#define COCOAPODS_POD_AVAILABLE_Cloudinary
+#define COCOAPODS_VERSION_MAJOR_Cloudinary 1
+#define COCOAPODS_VERSION_MINOR_Cloudinary 0
+#define COCOAPODS_VERSION_PATCH_Cloudinary 12
+
 // DZNPhotoPickerController/Editor
 #define COCOAPODS_POD_AVAILABLE_DZNPhotoPickerController_Editor
 #define COCOAPODS_VERSION_MAJOR_DZNPhotoPickerController_Editor 1
@@ -106,13 +112,13 @@
 #define COCOAPODS_POD_AVAILABLE_Mantle
 #define COCOAPODS_VERSION_MAJOR_Mantle 1
 #define COCOAPODS_VERSION_MINOR_Mantle 5
-#define COCOAPODS_VERSION_PATCH_Mantle 3
+#define COCOAPODS_VERSION_PATCH_Mantle 4
 
 // Mantle/extobjc
 #define COCOAPODS_POD_AVAILABLE_Mantle_extobjc
 #define COCOAPODS_VERSION_MAJOR_Mantle_extobjc 1
 #define COCOAPODS_VERSION_MINOR_Mantle_extobjc 5
-#define COCOAPODS_VERSION_PATCH_Mantle_extobjc 3
+#define COCOAPODS_VERSION_PATCH_Mantle_extobjc 4
 
 // OMGHTTPURLRQ
 #define COCOAPODS_POD_AVAILABLE_OMGHTTPURLRQ

@@ -11,7 +11,10 @@
 #import "User.h"
 #import "Buoy.h"
 #import "waves_ios-Swift.h"
+#import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import "WavesFormatter.h"
+
 
 
 
@@ -30,7 +33,10 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    [Crashlytics startWithAPIKey:@"2776a41715c04dde4ba5d15b716b66a51e353b0f"];
+    [Fabric with:@[CrashlyticsKit]];
+    [self setAppearance];
+    [self loadBuoys];
+    [WavesFormatter sharedClient];
     
     //[[CredentialStore sharedStore] logout];
     
@@ -40,9 +46,16 @@
     [self.window setRootViewController:navController];
     [self.window makeKeyAndVisible];
     
-    [self loadBuoys];
+
     
     return YES;
+}
+
+-(void) setAppearance {
+    // Nagivation bar font
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:                                                           [UIFont fontWithName:@"OpenSans" size:17.0],NSFontAttributeName, nil]];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:                                                           [UIFont fontWithName:@"OpenSans" size:15.0],NSFontAttributeName, nil] forState:UIControlStateNormal];
 }
 
 -(void) loadBuoys {
@@ -92,7 +105,10 @@
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();

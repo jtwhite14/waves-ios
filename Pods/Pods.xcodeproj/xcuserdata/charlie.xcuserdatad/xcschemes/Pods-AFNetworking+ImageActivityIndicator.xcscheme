@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8231D342AE5DA47B06EDCE95"
+               BlueprintIdentifier = "80531B988E4148DCD264C92C"
                BuildableName = "AFNetworking_ImageActivityIndicator.framework"
                BlueprintName = "Pods-AFNetworking+ImageActivityIndicator"
                ReferencedContainer = "container:Pods.xcodeproj">

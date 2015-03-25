@@ -10,21 +10,62 @@
         <relationship name="currentObservation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Observation" inverseName="buoy" inverseEntity="Observation" syncable="YES"/>
     </entity>
     <entity name="Observation" representedClassName="waves_ios.ManagedObservation" syncable="YES">
+        <attribute name="airTemp" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="averageWavePeriod" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="firstHighTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="firstHighValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="firstLowTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="firstLowValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logTideTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="logTideValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="meanWaveDirection" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="meanWindDirection" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="secondHighTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="secondHighValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="secondLowTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="secondLowValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="steepness" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="swellDirection" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="swellHeight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="swellPeriod" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="waterTemp" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="waveHeight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="windDirection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="windGusts" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="windSpeed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="windWaveHeight" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="windWavePeriod" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="buoy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Buoy" inverseName="currentObservation" inverseEntity="Buoy" syncable="YES"/>
     </entity>
+    <entity name="Session" representedClassName="waves_ios.ManagedSession" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="observation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Observation" syncable="YES"/>
+        <relationship name="wave" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wave" inverseName="sessions" inverseEntity="Wave" syncable="YES"/>
+    </entity>
+    <entity name="Wave" representedClassName="waves_ios.ManagedWave" syncable="YES">
+        <attribute name="distance" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mapPhotoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionsCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titlePhotoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="buoy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Buoy" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="wave" inverseEntity="Session" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Buoy" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="Observation" positionX="-54" positionY="36" width="128" height="223"/>
+        <element name="Observation" positionX="-54" positionY="36" width="128" height="463"/>
+        <element name="Session" positionX="-54" positionY="144" width="128" height="178"/>
+        <element name="Wave" positionX="-63" positionY="135" width="128" height="195"/>
     </elements>
 </model>

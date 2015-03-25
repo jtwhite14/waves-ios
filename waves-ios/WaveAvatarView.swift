@@ -41,10 +41,10 @@ class WaveAvatarView : MKMapView, MKMapViewDelegate {
         return startingView
     }
     
-//    override func drawRect(rect: CGRect) {
-//        self.attributionView().frame = CGRectMake(200, self.attributionView().frame.origin.y*2, self.attributionView().frame.size.width, self.attributionView().frame.size.height)
-//        super.drawRect(rect)
-//    }
+    override func drawRect(rect: CGRect) {
+        self.attributionView().frame = CGRectMake(200, self.attributionView().frame.origin.y*2, self.attributionView().frame.size.width, self.attributionView().frame.size.height)
+        super.drawRect(rect)
+    }
 
 }
     

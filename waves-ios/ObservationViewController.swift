@@ -17,8 +17,7 @@ class ObservationViewController: UIViewController {
     var managedObservation:ManagedObservation!
     var allowMapDisplay:Bool! = false
     var isCurrentObservation:Bool! = false
-    let dateFormatter = NSDateFormatter()
-
+    
     @IBOutlet var timestampLabel: UILabel!
     @IBOutlet var buoyDescriptionLabel: UILabel!
     @IBOutlet var buoyNameLabel: UILabel!
@@ -45,15 +44,10 @@ class ObservationViewController: UIViewController {
     @IBOutlet var tideSecondLowTimeLabel: UILabel!
     @IBOutlet var tideFirstHighTimeLabel: UILabel!
     @IBOutlet var tideSecondHighTimeLabel: UILabel!
-    let formatter = NSNumberFormatter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        self.formatter.maximumFractionDigits = 1
-        self.dateFormatter.dateStyle = .ShortStyle
-        self.dateFormatter.timeStyle = .ShortStyle
         
         if (buoy != nil) {
             configureBuoy(buoy)
@@ -105,36 +99,104 @@ class ObservationViewController: UIViewController {
     }
     
     func configureTimestamp(timestamp:NSDate) {
-        NSLog(self.dateFormatter.stringFromDate(timestamp))
-
-        if(isCurrentObservation == true) {
-            self.timestampLabel.text =  "Current Observation"
-        } else {
-            NSLog(self.dateFormatter.stringFromDate(timestamp))
-            self.timestampLabel.text = self.dateFormatter.stringFromDate(timestamp)
-        }
+        self.timestampLabel.text = WavesFormatter.sharedClient().dateFormatter().stringFromDate(timestamp)
     }
     
     func configureObservation(o:Observation) {
         configureTimestamp(o.timestamp)
         
         
-        self.waveHeightLabel.text = "\(self.formatter.stringFromNumber(o.waveHeight)!) ft"
-        self.swellHeightLabel.text = "\(self.formatter.stringFromNumber(o.swellHeight)!) ft"
-        self.dominantPeriodLabel.text = "\(self.formatter.stringFromNumber(o.swellPeriod)!) sec"
-        self.averagePeriodLabel.text = "\(self.formatter.stringFromNumber(o.averageWavePeriod)!) sec"
-        self.meanDirectionLabel.text = "\(o.swellDirection) (\(o.meanWaveDirection.stringValue))"
+
+        
+        self.waveHeightLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.waveHeight)!) ft"
+        self.swellHeightLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.swellHeight)!) ft"
+        self.dominantPeriodLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.swellPeriod)!) sec"
+        self.averagePeriodLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.averageWavePeriod)!) sec"
+        self.meanDirectionLabel.text = "(\(o.meanWaveDirection.stringValue)°)"
+        
+        if ((o.windSpeed) != nil) {
+            self.windSpeedLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.windSpeed)!) knts"
+        }
+        if ((o.windGusts) != nil) {
+            self.windGustsLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.windGusts)!) knts"
+        }
+        if ((o.windDirection) != nil) {
+            self.windDirectionLabel.text = "\(o.windDirection) (\(o.meanWindDirection)°)"
+        }
+        if ((o.airTemp) != nil) {
+            self.airTempLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.airTemp)!) °F"
+        }
+        if ((o.waterTemp) != nil) {
+            self.waterTempLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.waterTemp)!) °F"
+        }
+        if ((o.logTideValue) != nil) {
+            self.tideLogTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.logTideTimestamp)
+            self.tideLogLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.logTideValue)!) ft"
+        }
+        if ((o.firstLowValue) != nil) {
+            self.tideFirstLowLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.firstLowValue)!) ft"
+            self.tideFirstLowTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.firstLowTimestamp)
+        }
+        if ((o.secondLowValue) != nil) {
+           self.tideSecondLowLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.secondLowValue)!) ft"
+             self.tideSecondLowTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.secondLowTimestamp)
+        }
+        if ((o.firstHighValue) != nil) {
+            self.tideFirstHighLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.firstHighValue)!) ft"
+            self.tideFirstHighTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.firstHighTimestamp)
+        }
+        if ((o.secondHighValue) != nil) {
+            self.tideSecondHighLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.secondHighValue)!) ft"
+            self.tideSecondHighTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.secondHighTimestamp)
+        }
         
     }
     
     func configureManagedObservation(o:ManagedObservation) {
         configureTimestamp(o.timestamp)
+
         
-        self.waveHeightLabel.text = "\(self.formatter.stringFromNumber(o.waveHeight)!) ft"
-        self.swellHeightLabel.text = "\(self.formatter.stringFromNumber(o.swellHeight)!) ft"
-        self.dominantPeriodLabel.text = "\(self.formatter.stringFromNumber(o.swellPeriod)!) sec"
-        self.averagePeriodLabel.text = "\(self.formatter.stringFromNumber(o.averageWavePeriod)!) sec"
-        self.meanDirectionLabel.text = "\(o.swellDirection) (\(o.meanWaveDirection.stringValue))"
+        self.waveHeightLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.waveHeight)!) ft"
+        self.swellHeightLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.swellHeight)!) ft"
+        self.dominantPeriodLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.swellPeriod)!) sec"
+        self.averagePeriodLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.averageWavePeriod)!) sec"
+        self.meanDirectionLabel.text = "(\(o.meanWaveDirection.stringValue)°)"
+        
+        if ((o.windSpeed) != nil) {
+            self.windSpeedLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.windSpeed)!) knts"
+        }
+        if ((o.windGusts) != nil) {
+            self.windGustsLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.windGusts)!) knts"
+        }
+        if ((o.windDirection) != nil) {
+            self.windDirectionLabel.text = "\(o.windDirection) (\(o.meanWindDirection)°)"
+        }
+        if ((o.airTemp) != nil) {
+            self.airTempLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.airTemp)!) °F"
+        }
+        if ((o.waterTemp) != nil) {
+            self.waterTempLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.waterTemp)!) °F"
+        }
+        if ((o.logTideValue) != nil) {
+            self.tideLogTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.logTideTimestamp)
+            self.tideLogLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.logTideValue)!) ft"
+        }
+        if ((o.firstLowValue) != nil) {
+            self.tideFirstLowLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.firstLowValue)!) ft"
+            self.tideFirstLowTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.firstLowTimestamp)
+        }
+        if ((o.secondLowValue) != nil) {
+            self.tideSecondLowLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.secondLowValue)!) ft"
+            self.tideSecondLowTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.secondLowTimestamp)
+        }
+        if ((o.firstHighValue) != nil) {
+            self.tideFirstHighLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.firstHighValue)!) ft"
+            self.tideFirstHighTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.firstHighTimestamp)
+        }
+        if ((o.secondHighValue) != nil) {
+            self.tideSecondHighLabel.text = "\(WavesFormatter.sharedClient().numberFormatter().stringFromNumber(o.secondHighValue)!) ft"
+            self.tideSecondHighTimeLabel.text = WavesFormatter.sharedClient().timeFormatter().stringFromDate(o.secondHighTimestamp)
+        }
         
     }
     

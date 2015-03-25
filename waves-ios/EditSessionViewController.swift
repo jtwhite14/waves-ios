@@ -8,6 +8,7 @@
 
 import UIKit
 import RMDateSelectionViewController
+import MBProgressHUD
 
 @objc protocol SetWaveDelegate{
      func setWave(wave: Wave)
@@ -40,10 +41,8 @@ class EditSessionViewController: UIViewController, UITableViewDataSource, UITabl
         
         self.navigationController?.navigationBarHidden = true
         
-         NSNotificationCenter.defaultCenter().addObserver(self, selector: "receiveSessionNotification:", name: "session-photo-uploaded", object: nil)
-        
-        self.createSessionButton.setImage(UIImage(named: "inactive-btn"), forState: UIControlState.Disabled)
-        self.createSessionButton.enabled = false
+        self.createSessionButton.setImage(UIImage(named: "inactive-btn"), forState: UIControlState.Normal)
+        //self.createSessionButton.enabled = false
         
         self.starView.delegate = self
         
@@ -69,13 +68,6 @@ class EditSessionViewController: UIViewController, UITableViewDataSource, UITabl
         self.sessionDateButton.setTitle(dateFormatter.stringFromDate(self.session.timestamp), forState: .Normal)
         
         loadWaves()
-    }
-    
-    func receiveSessionNotification(notification:NSNotification) {
-        let tmp : [NSObject : AnyObject] = notification.userInfo!
-        let sessionIdentifer = tmp["identifer"] as NSString
-        self.createdSessionIdentifier = sessionIdentifer
-        self.validateSession()
     }
     
     func loadWaves() {
@@ -134,7 +126,14 @@ class EditSessionViewController: UIViewController, UITableViewDataSource, UITabl
             self.presentViewController(allWavesNav, animated: true, completion: nil)
         } else if (row == (self.waves.count + 1)) {
             let newWaveVC = NewWaveViewController(nibName: "NewWaveViewController", bundle: nil)
-            newWaveVC.region =  CLLocationCoordinate2D(latitude: CLLocationDegrees(self.session.latitude),longitude:  CLLocationDegrees(self.session.longitude))
+            
+            if ((self.session.latitude) != nil) {
+                newWaveVC.region =  CLLocationCoordinate2D(latitude: CLLocationDegrees(self.session.latitude),longitude:  CLLocationDegrees(self.session.longitude))
+            } else {
+                newWaveVC.region =  CLLocationCoordinate2D(latitude: CLLocationDegrees(LocationClient.sharedClient().currentLocation.latitude),longitude:  CLLocationDegrees(LocationClient.sharedClient().currentLocation.longitude))
+            }
+            
+            
             newWaveVC.delegate = self
             self.presentViewController(newWaveVC, animated: true, completion: nil)
             
@@ -146,6 +145,16 @@ class EditSessionViewController: UIViewController, UITableViewDataSource, UITabl
             self.validateSession()
         }
         
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let row = indexPath.row
+        
+        if (row < self.waves.count) {
+            let cell : UITableViewCell = self.tableView.cellForRowAtIndexPath(indexPath)!
+            cell.accessoryView! = UIView(frame: CGRectZero)
+
+        }
     }
     
     func setWave(wave: Wave) {
@@ -163,36 +172,51 @@ class EditSessionViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func createSession(sender: AnyObject) {
-        self.createSessionButton.enabled = false
         
-        let params : NSDictionary = [ "session" : [
-            "latitude" : self.session.latitude,
-            "longitude" : self.session.longitude,
-            "notes" : self.notesTextField.text,
-            "rating" : "\(self.starView.currentRating)",
-            "wave_id" : self.selectedWave.identifier,
-            "timestamp" : self.session.timestamp
-            ]
-        ]
-        self.delegate?.presentWave(self.selectedWave, animated: false)
-        Session.finalizeSession(params, withSessionID: self.createdSessionIdentifier, withCompletion: { (session:Session!) in
-            self.dismissViewControllerAnimated(true, completion: {
-                return
-            })
-        })
-    }
-    
-    func validateSession() {
-        if ((self.selectedWave != nil) && (self.starView.currentRating != 0) && (self.createdSessionIdentifier != nil)) {
-            self.createSessionButton.enabled = true
-        } else {
+        if (validateSession()) {
             self.createSessionButton.enabled = false
+            let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            
+            
+            var sessionDict : NSMutableDictionary = [
+                "notes" : self.notesTextField.text,
+                "rating" : "\(self.starView.currentRating)",
+                "wave_id" : self.selectedWave.identifier
+            ]
+            
+            if ((self.session.latitude != nil) && (self.session.longitude != nil)) {
+                sessionDict.setValue(self.session.latitude, forKey: "latitude")
+                sessionDict.setValue(self.session.longitude, forKey: "longitude")
+            }
+            
+            if ((self.session.timestamp) != nil) {
+                sessionDict.setValue(self.session.timestamp, forKey: "timestamp")
+            }
+            
+            let params : NSDictionary = ["session" : sessionDict]
+            
+            Session.finalizeSession(params, withSessionID: self.createdSessionIdentifier, withCompletion: { (session:Session!) in
+                hud.hide(true)
+                self.delegate?.presentWave(self.selectedWave.identifier, newSessionIdentifier:self.createdSessionIdentifier, newImage:self.sessionPhoto, animated: false)
+                self.dismissViewControllerAnimated(true, completion: {
+                    return
+                })
+            })
+        } else {
+            UIAlertView(title: "Hold up!", message: "You need to chose a wave and rating for your session.", delegate: nil, cancelButtonTitle: "OK").show()
         }
+        
+        
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell : UITableViewCell = self.tableView.cellForRowAtIndexPath(indexPath)!
-        cell.accessoryView! = UIView(frame: CGRectZero)
+    func validateSession() -> (Bool) {
+        if ((self.selectedWave != nil) && (self.starView.currentRating != 0) && (self.createdSessionIdentifier != nil)) {
+            self.createSessionButton.setImage(UIImage(named: "check-icon"), forState: UIControlState.Normal)
+            return true
+        } else {
+            self.createSessionButton.setImage(UIImage(named: "inactive-btn"), forState: UIControlState.Normal)
+            return false
+        }
     }
     
     
@@ -207,6 +231,7 @@ class EditSessionViewController: UIViewController, UITableViewDataSource, UITabl
         dateSelectionVC.tintColor = UIColor(red: 0, green: 0.706, blue: 1, alpha: 1)
         dateSelectionVC.datePicker.tag = 0
         dateSelectionVC.datePicker.date = self.session.timestamp
+        dateSelectionVC.datePicker.maximumDate = NSDate()
         dateSelectionVC.show()
     }
     

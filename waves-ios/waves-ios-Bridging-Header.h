@@ -16,3 +16,7 @@
 #import "LargeStarView.h"
 #import "CredentialStore.h"
 #import <IBActionSheet/IBActionSheet.h>
+#import <DZNPhotoPickerController/UIImagePickerController+Edit.h>
+#import "WavesImageUploader.h"
+#import "WavesFormatter.h"
+#import <MKMapView_AttributionView/MKMapView+AttributionView.h>

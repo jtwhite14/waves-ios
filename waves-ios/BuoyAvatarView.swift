@@ -25,7 +25,7 @@ class BuoyAvatarView : MKMapView, MKMapViewDelegate {
     }
     
     func setStartingRegion(coordinates:CLLocationCoordinate2D) {
-        let region = MKCoordinateRegionMakeWithDistance(coordinates, 30000, 30000)
+        let region = MKCoordinateRegionMakeWithDistance(coordinates, 50000, 50000)
         self.setRegion(region, animated: false)
         
         var startingPin = MKPointAnnotation()
@@ -41,10 +41,4 @@ class BuoyAvatarView : MKMapView, MKMapViewDelegate {
         startingView.image = UIImage(named: "Buoy-map-icon")
         return startingView
     }
-    
-//    override func drawRect(rect: CGRect) {
-//        self.attributionView().frame = CGRectMake(200, self.attributionView().frame.origin.y*2, self.attributionView().frame.size.width, self.attributionView().frame.size.height)
-//        super.drawRect(rect)
-//    }
-    
 }

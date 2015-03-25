@@ -19,6 +19,7 @@
              @"identifier": @"id",
              @"name": @"name",
              @"authToken": @"authentication_token",
+             @"avatarUrl": @"avatar_url",
              @"waves": @"waves",
              @"sessions": @"sessions",
             };
@@ -33,27 +34,34 @@
 }
 
 
-+ (void)createCurrentUser:(NSDictionary *)params withImage:(UIImage *)image withCompletion:(void (^)(User *))completion {
++ (void)createCurrentUser:(NSDictionary *)params withImage:(UIImage *)image withCompletion:(void (^)(User *, NSError *))completion {
     [[WavesAPIClient sharedClient] POST:@"registrations" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
-        [formData appendPartWithFileData:imageData name:@"session[session_photo]" fileName:@"session_photo.jpeg" mimeType:@"image/jpeg"];
-    }].then( ^ (OVCResponse *response) {
-        User *user = response.result;
-        [[CredentialStore sharedStore] setAuthToken:user.authToken];
-        [[CredentialStore sharedStore] setUserID:user.identifier];
-        [[CredentialStore sharedStore] setCurrentUser:user];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"user-created" object:self];
+        if (image) {
+            NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
+            [formData appendPartWithFileData:imageData name:@"registration[avatar]" fileName:@"avatar.jpeg" mimeType:@"image/jpeg"];
+
+        }}].then( ^ (OVCResponse *response) {
+    User *user = response.result;
+    [[CredentialStore sharedStore] setAuthToken:user.authToken];
+    [[CredentialStore sharedStore] setUserID:user.identifier];
+    [[CredentialStore sharedStore] setCurrentUser:user];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"user-created" object:self];
+    if (completion) {
+        completion(user, nil);
+    }
+    }).catch(^(NSError *error) {
         if (completion) {
-            completion(user);
+            completion(nil, error);
         }
     });
 }
 
 - (void)updateUser:(NSDictionary *)params withImage:(UIImage *)image withCompletion:(void (^)(User *user))completion{
     [[WavesAPIClient sharedClient] POST:@"users" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
-        [formData appendPartWithFileData:imageData name:@"session[session_photo]" fileName:@"session_photo.jpeg" mimeType:@"image/jpeg"];
-    }].then( ^ (OVCResponse *response) {
+        if (image) {
+            NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
+            [formData appendPartWithFileData:imageData name:@"user[avatar]" fileName:@"avatar.jpeg" mimeType:@"image/jpeg"];
+        }}].then( ^ (OVCResponse *response) {
         User *user = response.result;
         [[CredentialStore sharedStore] setCurrentUser:user];
         if (completion) {
@@ -62,7 +70,7 @@
     });
 }
 
-+ (void)login:(NSDictionary *)params withCompletion:(void (^)(User *))completion {
++ (void)login:(NSDictionary *)params withCompletion:(void (^)(User *, NSError *))completion {
     [[WavesAPIClient sharedClient] POST:@"logins" parameters:params].then( ^ (OVCResponse *response) {
         User *user = response.result;
         [[CredentialStore sharedStore] setAuthToken:user.authToken];
@@ -70,7 +78,11 @@
         [[CredentialStore sharedStore] setCurrentUser:user];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"user-logged-in" object:self];
         if (completion) {
-            completion(user);
+            completion(user, nil);
+        }
+    }).catch(^(NSError *error) {
+        if (completion) {
+            completion(nil, error);
         }
     });
 }

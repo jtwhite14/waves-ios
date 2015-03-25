@@ -58,19 +58,30 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     func loadWaves() {
         
-        let params : NSDictionary = [ "latitude" : LocationClient.sharedClient().currentLocation.latitude , "longitude" : LocationClient.sharedClient().currentLocation.longitude ]
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let fetchRequest = NSFetchRequest()
+        let entity = NSEntityDescription.entityForName("Wave", inManagedObjectContext: appDelegate.managedObjectContext)
+        fetchRequest.entity = entity
+        let annotationsArray = NSMutableArray()
         
-        
-        Wave.getClosestWaves(params, {(waves:[AnyObject]!)  in
-            for wave in waves as [Wave] {
+        let asyncFetch = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) {
+            (result:NSAsynchronousFetchResult!) -> Void in
+            
+            let waves = result.finalResult as [ManagedWave]
+            for wave in waves {
                 var wavePin = WavePointAnnotation()
                 wavePin.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(wave.latitude),CLLocationDegrees(wave.longitude))
                 wavePin.title = wave.slug
                 wavePin.wave = wave
                 self.mapView.addAnnotation(wavePin)
             }
-            
-        })
+        }
+        
+        appDelegate.managedObjectContext.performBlock { // 1
+            var error : NSError?
+            var results = appDelegate.managedObjectContext.executeRequest(asyncFetch,
+                error: &error) as NSAsynchronousFetchResult
+        }
     }
     
     func loadBuoys() {
@@ -166,13 +177,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-    
-    
     func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
         if (view.reuseIdentifier == "wave") {
             let wpa = view.annotation as WavePointAnnotation
             let waveVC = WaveViewController(nibName: "WaveViewController", bundle: nil)
             waveVC.wave = wpa.wave
+            waveVC.allowMapDisplay = false
             self.navigationController?.pushViewController(waveVC, animated: true)
         } else if(view.reuseIdentifier == "buoy") {
             let cchAnnotation = view.annotation as CCHMapClusterAnnotation

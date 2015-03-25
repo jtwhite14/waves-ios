@@ -7,17 +7,38 @@
 //
 
 import UIKit
+import DZNPhotoPickerController
+import HanekeSwift
+import MBProgressHUD
 
 class SettingsViewController: UIViewController {
 
+    var user:User!
+    var newAvatar:UIImage! = nil
     @IBOutlet var nameLabel: UITextField!
-    
     @IBOutlet var avatarView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.avatarView.layer.cornerRadius = self.avatarView.frame.size.width / 2
+        self.avatarView.clipsToBounds = true
+        
+        loadCurrentUser()
+    }
+    
+    func loadCurrentUser() {
+        if((CredentialStore.sharedStore().currentUser) != nil) {
+            self.user = CredentialStore.sharedStore().currentUser
+            self.nameLabel.text = user.name
+            self.avatarView.hnk_setImageFromURL(NSURL(string:user.avatarUrl)!, placeholder:UIImage(named: "import-photo-icon"))
+        } else {
+            User.getCurrentUserWithCompletion({ (user:User!) in
+                self.user = user
+                self.nameLabel.text = user.name
+                self.avatarView.hnk_setImageFromURL(NSURL(string:user.avatarUrl)!, placeholder:UIImage(named: "import-photo-icon"))
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +51,33 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction func updateAvatar(sender: AnyObject) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        picker.cropMode = DZNPhotoEditorViewControllerCropMode.Circular
+        
+        picker.finalizationBlock = { (picker:UIImagePickerController!, info:[NSObject : AnyObject]!) in
+            self.newAvatar = info[UIImagePickerControllerEditedImage] as? UIImage
+            self.avatarView.image = self.newAvatar
+            picker.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        picker.cancellationBlock = { (picker:UIImagePickerController!) in
+           picker.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        self.presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    @IBAction func updateUser() {
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
+        let params: NSDictionary = [ "user" : [ "name" : self.nameLabel.text ]]
+        self.user.updateUser(params, withImage: self.newAvatar, withCompletion: { (user:User!) in
+            hud.hide(true)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
+
     }
     
     @IBAction func logout() {
@@ -45,6 +93,10 @@ class SettingsViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    @IBAction func displayContactUs(sender: AnyObject) {
+        let contactVC = ContactUsViewController(nibName: "ContactUsViewController", bundle: nil)
+        self.navigationController?.pushViewController(contactVC, animated: true)
+    }
     
 
     /*

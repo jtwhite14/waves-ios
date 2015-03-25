@@ -12,7 +12,7 @@ import HanekeSwift
 
 class SessionCell: UITableViewCell {
     
-    var session:Session!
+    var session:ManagedSession!
     var delegate:SessionDelegate?
     
     @IBOutlet var swellPeriodLabel: UILabel!
@@ -23,6 +23,7 @@ class SessionCell: UITableViewCell {
     @IBOutlet var timeAgoLabel: UILabel!
     @IBOutlet var starRatingView: StarView!
     @IBOutlet var sessionPhotoView: UIImageView!
+    @IBOutlet var showObservationData: UIButton!
 
     let formatter = NSNumberFormatter()
 
@@ -41,26 +42,74 @@ class SessionCell: UITableViewCell {
     }
     
     
-    func configureSession(session: Session) {
+    func configureSession(session: ManagedSession) {
         self.session = session
         
         self.descriptionLabel.text = session.notes
         self.timeAgoLabel.text =  session.timestamp.timeAgoSinceNow()
         self.starRatingView.setStarRating(session.rating.intValue)
-        self.sessionPhotoView.hnk_setImageFromURL(NSURL(string:session.photoUrl)!, placeholder:UIImage(named: "placeholder-img"))
+        if((session.photoUrl) != nil) {
+            self.sessionPhotoView.hnk_setImageFromURL(NSURL(string:session.photoUrl)!, placeholder:UIImage(named: "placeholder-img"))
+        }
+       
 
         if ((session.observation) != nil) {
-            self.waveHeightLabel.text = "\(self.formatter.stringFromNumber(session.observation!.waveHeight)!) ft"
-            self.swellPeriodLabel.text = "\(self.formatter.stringFromNumber(session.observation!.swellPeriod)!) sec"
-            self.waveDirectionLabel.text = "(\(session.observation!.meanWaveDirection.stringValue))"
+            configureObservation(session.observation)
+        } else {
+            self.showObservationData.enabled = false
+        }
+    }
+    
+    func configureSession(session: ManagedSession, image:UIImage) {
+        self.session = session
+        
+        self.descriptionLabel.text = session.notes
+        self.timeAgoLabel.text =  session.timestamp.timeAgoSinceNow()
+        self.starRatingView.setStarRating(session.rating.intValue)
+        if((session.photoUrl) != "") {
+            self.sessionPhotoView.hnk_setImageFromURL(NSURL(string:session.photoUrl)!, placeholder:UIImage(named: "placeholder-img"))
+        } else {
+            self.sessionPhotoView.image = image
+        }
+        
+
+        if ((session.observation) != nil) {
+            configureObservation(session.observation)
+        } else {
+            configureEmptyObservation()
+        }
+    }
+    
+    func configureObservation(o:ManagedObservation) {
+        self.showObservationData.enabled = true
+        self.waveHeightLabel.text = "\(self.formatter.stringFromNumber(o.waveHeight)!) ft"
+        self.swellPeriodLabel.text = "\(self.formatter.stringFromNumber(o.swellPeriod)!) sec"
+        self.waveDirectionLabel.text = "(\(o.meanWaveDirection.stringValue)°)"
+        
+        if (o.windDirection != nil) {
             
             let attachment = NSTextAttachment()
             attachment.image = UIImage(named: "wind-icon-halfsize-blue")
             let attachmentString = NSAttributedString(attachment: attachment)
-            let myString = NSMutableAttributedString(string: session.observation!.swellDirection)
+            let myString = NSMutableAttributedString(string: o.windDirection)
             myString.insertAttributedString(attachmentString, atIndex: 0)
             self.swellDirectionLabel.attributedText = myString
         }
+    }
+    
+    func configureEmptyObservation() {
+        self.showObservationData.enabled = false
+        self.waveHeightLabel.text = "-- ft"
+        self.swellPeriodLabel.text = "-- sec"
+        self.waveDirectionLabel.text = "(--°)"
+        
+        let attachment = NSTextAttachment()
+        attachment.image = UIImage(named: "wind-icon-halfsize-blue")
+        let attachmentString = NSAttributedString(attachment: attachment)
+        let myString = NSMutableAttributedString(string: "--")
+        myString.insertAttributedString(attachmentString, atIndex: 0)
+        self.swellDirectionLabel.attributedText = myString
+
     }
     
     @IBAction func showSessionObservation(sender: AnyObject) {

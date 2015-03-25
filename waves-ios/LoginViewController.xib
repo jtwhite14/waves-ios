@@ -85,6 +85,7 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                     <connections>
                         <action selector="editingChanged:" destination="-1" eventType="editingChanged" id="Vil-BU-qTr"/>
+                        <action selector="login:" destination="-1" eventType="editingDidEndOnExit" id="pK2-vf-LCj"/>
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0H-N9-td2">

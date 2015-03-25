@@ -10,6 +10,7 @@
 #import "WavesAPIClient.h"
 #import <Overcoat/Overcoat.h>
 #import <Overcoat/PromiseKit+Overcoat.h>
+#import "LocationClient.h"
 
 @implementation Wave
 
@@ -36,10 +37,41 @@
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:Session.class];
 }
 
+#pragma mark - MTLManagedObjectSerializing
+
++ (NSString *)managedObjectEntityName {
+    return @"Wave";
+}
+
++ (NSDictionary *)managedObjectKeysByPropertyKey {
+    return @{};
+}
+
++ (NSSet *)propertyKeysForManagedObjectUniquing {
+    return [NSSet setWithObject:@"identifier"];
+}
+
++ (NSDictionary *)relationshipModelClassesByPropertyKey {
+    return @{
+             @"buoy": [Buoy class],
+             @"sessions": [Session class]
+             };
+}
+
+
 + (void) getWaves:(void (^)(NSArray *))completion {
     [[WavesAPIClient sharedClient] GET:@"waves" parameters:nil].then( ^ (OVCResponse *response) {
         if (completion) {
              completion(response.result);
+        }
+    });
+}
+
++ (void) getWave:(NSString *)waveIdentifier withParams:(NSDictionary *)params withCompletion:(void (^)(Wave *))completion {
+ 
+    [[WavesAPIClient sharedClient] GET:[NSString stringWithFormat:@"waves/%@",waveIdentifier] parameters:params].then( ^ (OVCResponse *response) {
+        if (completion) {
+            completion(response.result);
         }
     });
 }
@@ -62,5 +94,9 @@
         }
     });
 }
+
+//- (ManagedWave *)managedWave {
+//    return [[ManagedWave alloc] init];
+//}
 
 @end

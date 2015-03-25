@@ -17,7 +17,7 @@ class ManagedBuoy: NSManagedObject {
     @NSManaged var stationId: String
     @NSManaged var latitude: NSNumber
     @NSManaged var longitude: NSNumber
-    @NSManaged var currentObservation: waves_ios.ManagedObservation
+    @NSManaged var currentObservation: waves_ios.ManagedObservation!
     
     
     func mapTitle() -> (NSString) {

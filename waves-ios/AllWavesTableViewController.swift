@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mantle
 
 class AllWavesTableViewController: UITableViewController {
     
@@ -34,15 +35,32 @@ class AllWavesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        self.loadWaves()
     }
     
-    func loadWaves() {
-        Wave.getWaves({(waves:[AnyObject]!)  in
-            self.waves = waves as? [Wave]
-            self.tableView.reloadData()
-        })
+    
+    func numberOfWaves() -> (Int) {
+        var count : Int!
+        if let s = self.fetchedResultsController.sections as? [NSFetchedResultsSectionInfo] {
+            count = s[0].numberOfObjects
+        }
+        return count
     }
+    
+    private lazy var fetchedResultsController: NSFetchedResultsController = {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        let fetchRequest = NSFetchRequest(entityName: "Wave")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "distance", ascending: true)]
+        
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
+            managedObjectContext: appDelegate.managedObjectContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        
+        controller.performFetch(nil)
+        
+        return controller
+        }()
     
     func cancel() {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
@@ -62,19 +80,20 @@ class AllWavesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return waves.count
+        return self.numberOfWaves()
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("waveNameIdentifier", forIndexPath: indexPath) as UITableViewCell
-        let wave : Wave = self.waves[indexPath.row] as Wave
+        let wave = self.fetchedResultsController.objectAtIndexPath(indexPath) as ManagedWave
         cell.textLabel?.text = wave.slug
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let wave : Wave = self.waves[indexPath.row] as Wave
+        let managedWave = self.fetchedResultsController.objectAtIndexPath(indexPath) as ManagedWave
+        let wave = MTLManagedObjectAdapter.modelOfClass(Wave.self, fromManagedObject: managedWave, error: nil) as Wave
         self.delegate?.setWave(wave)
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }

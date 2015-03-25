@@ -29,7 +29,6 @@
 
 @interface OVCHTTPSessionManager ()
 
-@property (strong, nonatomic) NSManagedObjectContext *backgroundContext;
 @property (strong, nonatomic) id contextObserver;
 
 @end

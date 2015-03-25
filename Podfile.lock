@@ -24,13 +24,14 @@ PODS:
     - AFNetworking/NSURLSession
   - AMRatingControl (1.3.0)
   - CCHMapClusterController (1.6.5)
+  - Cloudinary (1.0.12)
   - DateTools (1.4.3)
   - DZNPhotoPickerController/Editor (1.6.1)
   - HanekeSwift (0.8.1)
   - IBActionSheet (0.0.2)
-  - Mantle (1.5.3):
-    - Mantle/extobjc (= 1.5.3)
-  - Mantle/extobjc (1.5.3)
+  - Mantle (1.5.4):
+    - Mantle/extobjc (= 1.5.4)
+  - Mantle/extobjc (1.5.4)
   - MBProgressHUD (0.9)
   - MKMapView+AttributionView (0.1.0)
   - OMGHTTPURLRQ (2.1):
@@ -95,6 +96,7 @@ DEPENDENCIES:
   - AFNetworking+ImageActivityIndicator (~> 1.0)
   - AMRatingControl
   - CCHMapClusterController
+  - Cloudinary
   - DateTools
   - DZNPhotoPickerController/Editor
   - HanekeSwift (from `https://github.com/Haneke/HanekeSwift`, branch `podspec`)
@@ -124,11 +126,12 @@ SPEC CHECKSUMS:
   AFNetworking+ImageActivityIndicator: 224493ef8f4f8d8163a53e0ea894e0f8b7d70675
   AMRatingControl: 37b5793d45d37089d605621e53fcf1e527fe28af
   CCHMapClusterController: 8c31a0bb6bc4f30a437f308752afe491ef5caccc
+  Cloudinary: 1f3859b17f1c111671a1acf1f0e2648c34d3a207
   DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
   DZNPhotoPickerController: b160709441243eeed87cd998d2b92da1f6d91840
   HanekeSwift: 63eac3df5211d91b0023ba8b91e497480bd236cc
   IBActionSheet: 0e09273791676892f663ee1ceaab50e0f1c7150d
-  Mantle: 8d84cacd6c2a69ff6fbce985a2b51298a5495de3
+  Mantle: d5fbaf30fbc58031223af13812c060e15934a1fe
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   MKMapView+AttributionView: 380dd19a6f006ed19a07a169d765afa242b79cb0
   OMGHTTPURLRQ: f8c515dfd2f57a5d74c710978f600231f52afec5

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3CB63D838DFA06AAC2267403"
+               BlueprintIdentifier = "8DAC63B13C1559F109F09232"
                BuildableName = "MKMapView_AttributionView.framework"
                BlueprintName = "Pods-MKMapView+AttributionView"
                ReferencedContainer = "container:Pods.xcodeproj">

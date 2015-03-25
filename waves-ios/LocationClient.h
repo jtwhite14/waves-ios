@@ -14,6 +14,10 @@
 @property (nonatomic, copy) CLLocationManager *locationManager;
 @property (nonatomic) CLLocationCoordinate2D currentLocation;
 
+
 + (instancetype)sharedClient;
+-(BOOL)currentLocationIsValid;
+
+
 
 @end
